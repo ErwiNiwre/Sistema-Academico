@@ -12,5 +12,9 @@
 */
 
 Route::get('/', function () {
-    return view('incos_inicio');
+    return view('layouts.incos_inicio');
+});
+
+Route::get('prueba', function () {
+    return view('prueba');
 });
