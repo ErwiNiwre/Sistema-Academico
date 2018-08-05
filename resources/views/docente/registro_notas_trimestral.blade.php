@@ -2,10 +2,23 @@
 
 @section('content')
 
-<h1>helpppppppppp</h1>
+<center>
+    <h1>REGISTRO DE NOTAS</h1>
+    <h3>TRIMESTRAL</h3>
+</center>
 <section class="content">
+    <div class="row no-print">
+        <div class="col-xs-12">
+          <a href="invoice-print.html" target="_blank" class="btn btn-default"><i class="fa fa-print"></i> Print</a>
+          <button type="button" class="btn btn-success pull-right"><i class="fa fa-credit-card"></i> Submit Payment
+          </button>
+          <button type="button" class="btn btn-primary pull-right" style="margin-right: 5px;">
+            <i class="fa fa-download"></i> Generate PDF
+          </button>
+        </div>
+      </div>
     <div class="box-body table-responsive">
-        <table class="table table-bordered">
+        <table class="table table-striped">
             <thead class="bg-green-active">
                 <tr>
                     <th rowspan="3" class="text-center">N°</th>
@@ -97,7 +110,7 @@
                     <th>100</th>
                 </tr>
                 <tr>
-                    <th>1</th>
+                    <th>2</th>
                     <td>Condori Quispe Pedro</td>
                     {{-- Primer Trimestre --}}
                     <th><input type="text" style="width: 30px"></th>
@@ -127,6 +140,9 @@
 
             </tbody>
         </table>
+        <div aling="center">
+            <button type="submit" class="btn btn-primary">Guardar</button>
+        </div>
     </div>
 </section>
 @endsection

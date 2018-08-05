@@ -18,3 +18,39 @@ Route::get('/', function () {
 Route::get('prueba', function () {
     return view('prueba');
 });
+
+Route::get('inicio_sesion', function () {
+    return view('login');
+});
+
+//Super Administrador
+Route::get('super_administrador', function () {
+    return view('prueba');
+});
+
+//Administrador
+Route::get('administrador', function () {
+    return view('prueba');
+});
+
+//Docente
+Route::get('docente', function () {
+    return view('docente/informacion_docente');
+});
+
+Route::get('docente/registro_notas_trimestral', function () {
+    return view('docente/registro_notas_trimestral');
+});
+
+Route::get('docente/registro_notas_bimestral', function () {
+    return view('docente/registro_notas_bimestral');
+});
+
+Route::get('docente/horario', function () {
+    return view('docente/horario');
+});
+
+//Estudiante
+Route::get('estudiante', function () {
+    return view('prueba');
+});
