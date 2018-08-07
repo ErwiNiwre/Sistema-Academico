@@ -157,9 +157,12 @@
 
             </tbody>
         </table>
-        <div aling="center">
-            <button type="submit" class="btn btn-primary">Guardar</button>
+        <div class="text-center">
+            <button type="submit" class="btn btn-primary fa fa-edit">Guardar</button>
         </div>
+        {{-- <div class="text-center">
+            <a href="/perfil/editar" class="btn btn-primary btn-lg"><i class="fa fa-edit"></i> Editar</a>
+        </div> --}}
     </div>
 </section>
 
