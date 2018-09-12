@@ -28,6 +28,7 @@
       <!-- /.search form -->
 
       <!-- Sidebar Menu -->
+      <hr color="red">
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MENU</li>
         <!-- Optionally, you can add icons to the links -->
@@ -64,6 +65,39 @@
         <li><a href="#"><i class="fa fa-info-circle"></i> <span>Nosotros</span></a></li>
         <li><a href="#"><i class="fa fa-envelope"></i> <span>Contacto</span></a></li>
       </ul>
+
+      <ul class="sidebar-menu" data-widget="tree">
+          <li class="header">MENU ADMINSITRADOR</li>
+          <!-- Optionally, you can add icons to the links -->
+          <li class="treeview">
+            <a href="#"><i class="fa fa-mortar-board"></i> <span>REGISTRAR</span>
+              <span class="pull-right-container">
+                  <i class="fa fa-angle-left pull-right"></i>
+                </span>
+            </a>
+            <ul class="treeview-menu">
+              <li><a href="#">ADMINISTRATIVOS</a></li>
+              <li><a href="#">DOCENTES</a></li>
+              <li><a href="#">ESTUDIANTES</a></li>
+            </ul>
+          </li>
+          <li class="treeview">
+            <a href="#"><i class="fa fa-bullhorn"></i> <span>Admisiones</span>
+              <span class="pull-right-container">
+                  <i class="fa fa-angle-left pull-right"></i>
+                </span>
+            </a>
+            <ul class="treeview-menu">
+              <li><a href="#">Información</a></li>
+              <li><a href="#">Convocatoria</a></li>
+              <li><a href="#">Formulario</a></li>
+              <li><a href="#">Resultados</a></li> 
+            </ul>
+          </li>
+          <li><a href="#"><i class="fa fa-newspaper-o"></i> <span>Noticia</span></a></li>
+          <li><a href="#"><i class="fa fa-info-circle"></i> <span>Nosotros</span></a></li>
+          <li><a href="#"><i class="fa fa-envelope"></i> <span>Contacto</span></a></li>
+        </ul>
       <!-- /.sidebar-menu -->
     </section>
     <!-- /.sidebar -->

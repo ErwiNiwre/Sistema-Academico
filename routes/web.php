@@ -30,24 +30,33 @@ Route::get('super_administrador', function () {
 
 //Administrador
 Route::get('administrador', function () {
-    return view('prueba');
+    return view('administradores/registros');
 });
 
 //Docente
+Route::resource('Docentes', 'DocentesController');
+
+
+
+
 Route::get('docente', function () {
-    return view('docente/informacion_docente');
+    return view('docentes/informacion_docente');
+});
+
+Route::get('editar', function () {
+    return view('docentes/editar');
 });
 
 Route::get('docente/registro_notas_trimestral', function () {
-    return view('docente/registro_notas_trimestral');
+    return view('docentes/registro_notas_trimestral');
 });
 
 Route::get('docente/registro_notas_bimestral', function () {
-    return view('docente/registro_notas_bimestral');
+    return view('docentes/registro_notas_bimestral');
 });
 
 Route::get('docente/horario', function () {
-    return view('docente/horario');
+    return view('docentes/horario');
 });
 
 //Estudiante

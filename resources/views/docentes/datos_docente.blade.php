@@ -1,6 +1,4 @@
-@extends('layouts.incos_inicio')
 
-@section('content')
 
 <section class="content col-xs-12 col-lg-12">
     <div class="box box-info">
@@ -9,6 +7,7 @@
             <button type="button" class="btn btn-success pull-right">
                 <i class="fa fa-edit"></i> Editar
             </button>
+        {{-- <a href="{{ route('docentes.editar') }}">Editar</a> --}}
         </div>
         <div class="box-body">
             <div class="table-responsive">
@@ -87,6 +86,3 @@
         </div>
     </div>
 </section>
-
-
-@endsection

@@ -60,7 +60,7 @@ desired effect
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
-    <section class="content-header">
+    {{-- <section class="content-header">
       <h1>
         Page Header
         <small>Optional description</small>
@@ -69,12 +69,14 @@ desired effect
         <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
         <li class="active">Here</li>
       </ol>
-    </section>
+    </section> --}}
 
     <!-- Main content -->
     <section class="content container-fluid">
-
-      @yield('content')
+      {{-- <!-------------------------- --}}
+        {{-- | Your Page Content Here | --}}
+          @yield('content')  
+      {{-- --------------------------> --}}
 
     </section>
     <!-- /.content -->
