@@ -23,8 +23,8 @@ class AcademicoSeeder extends Seeder
         ]);
 
         DB::table('carreras')->insert([
-            ['idCarrera' => '1', 'nombre' => 'SISTEMAS INFORMATICOS', 'nivelAcademico' => 'TÉCNICO SUPERIOR', 'created_at' => '2018/09/11', 'updated_at' => '2018/09/11'],
-            ['idCarrera' => '2', 'nombre' => 'SECRETARIADO EJECUTIVO', 'nivelAcademico' => 'TÉCNICO SUPERIOR', 'created_at' => '2018/09/11', 'updated_at' => '2018/09/11'],
+            ['idCarrera' => '1', 'carrera' => 'SISTEMAS INFORMATICOS', 'nivelAcademico' => 'TÉCNICO SUPERIOR', 'created_at' => '2018/09/11', 'updated_at' => '2018/09/11'],
+            ['idCarrera' => '2', 'carrera' => 'SECRETARIADO EJECUTIVO', 'nivelAcademico' => 'TÉCNICO SUPERIOR', 'created_at' => '2018/09/11', 'updated_at' => '2018/09/11'],
         ]);
 
         DB::table('paralelos')->insert([
@@ -64,12 +64,12 @@ class AcademicoSeeder extends Seeder
         ]);
 
         DB::table('aulas')->insert([
-            ['idAula' => '1', 'nombre' => 'Laboratorio 1', 'ubicacion' => 'Tercer Piso', 'created_at' => '2018/09/11', 'updated_at' => '2018/09/11'],
-            ['idAula' => '2', 'nombre' => 'Laboratorio 2', 'ubicacion' => 'Tercer Piso', 'created_at' => '2018/09/11', 'updated_at' => '2018/09/11'],
-            ['idAula' => '3', 'nombre' => 'Laboratorio 3', 'ubicacion' => 'Tercer Piso', 'created_at' => '2018/09/11', 'updated_at' => '2018/09/11'],
-            ['idAula' => '4', 'nombre' => 'Laboratorio 4', 'ubicacion' => 'Tercer Piso', 'created_at' => '2018/09/11', 'updated_at' => '2018/09/11'],
-            ['idAula' => '5', 'nombre' => 'Laboratorio 5', 'ubicacion' => 'Cuarto Piso', 'created_at' => '2018/09/11', 'updated_at' => '2018/09/11'],
-            ['idAula' => '6', 'nombre' => 'Laboratorio 6', 'ubicacion' => 'Cuarto Piso', 'created_at' => '2018/09/11', 'updated_at' => '2018/09/11'],
+            ['idAula' => '1', 'aula' => 'Laboratorio 1', 'ubicacion' => 'Tercer Piso', 'capacidad' => '35', 'created_at' => '2018/09/11', 'updated_at' => '2018/09/11'],
+            ['idAula' => '2', 'aula' => 'Laboratorio 2', 'ubicacion' => 'Tercer Piso', 'capacidad' => '30', 'created_at' => '2018/09/11', 'updated_at' => '2018/09/11'],
+            ['idAula' => '3', 'aula' => 'Laboratorio 3', 'ubicacion' => 'Tercer Piso', 'capacidad' => '35', 'created_at' => '2018/09/11', 'updated_at' => '2018/09/11'],
+            ['idAula' => '4', 'aula' => 'Laboratorio 4', 'ubicacion' => 'Tercer Piso', 'capacidad' => '25', 'created_at' => '2018/09/11', 'updated_at' => '2018/09/11'],
+            ['idAula' => '5', 'aula' => 'Laboratorio 5', 'ubicacion' => 'Cuarto Piso', 'capacidad' => '35', 'created_at' => '2018/09/11', 'updated_at' => '2018/09/11'],
+            ['idAula' => '6', 'aula' => 'Laboratorio 6', 'ubicacion' => 'Cuarto Piso', 'capacidad' => '30', 'created_at' => '2018/09/11', 'updated_at' => '2018/09/11'],
         ]);
 
         DB::table('periodos')->insert([
@@ -81,6 +81,17 @@ class AcademicoSeeder extends Seeder
             ['idPeriodo' => '6', 'numeral' => '3er', 'literal' => 'TERCER', 'periodo' => 'BIMESTRE', 'created_at' => '2018/09/11', 'updated_at' => '2018/09/11'],
             ['idPeriodo' => '7', 'numeral' => '4to', 'literal' => 'CUARTO', 'periodo' => 'BIMESTRE', 'created_at' => '2018/09/11', 'updated_at' => '2018/09/11'],
         ]);
+
+        DB::table('materias')->insert([
+            ['idMateria' => '1', 'materia' => 'HARDWARE', 'sigla' => 'PRIMER', 'periodo' => 'TRIMESTRE', 'created_at' => '2018/09/11', 'updated_at' => '2018/09/11'],
+            ['idMateria' => '2', 'materia' => '2do', 'sigla' => 'SEGUNDO', 'periodo' => 'TRIMESTRE', 'created_at' => '2018/09/11', 'updated_at' => '2018/09/11'],
+            ['idMateria' => '3', 'materia' => '3er', 'sigla' => 'TERCER', 'periodo' => 'TRIMESTRE', 'created_at' => '2018/09/11', 'updated_at' => '2018/09/11'],
+            ['idMateria' => '4', 'materia' => '1er', 'sigla' => 'PRIMER', 'periodo' => 'BIMESTRE', 'created_at' => '2018/09/11', 'updated_at' => '2018/09/11'],
+            ['idMateria' => '5', 'materia' => '2do', 'sigla' => 'SEGUNDO', 'periodo' => 'BIMESTRE', 'created_at' => '2018/09/11', 'updated_at' => '2018/09/11'],
+            ['idMateria' => '6', 'materia' => '3er', 'sigla' => 'TERCER', 'periodo' => 'BIMESTRE', 'created_at' => '2018/09/11', 'updated_at' => '2018/09/11'],
+            ['idMateria' => '7', 'materia' => '4to', 'sigla' => 'CUARTO', 'periodo' => 'BIMESTRE', 'created_at' => '2018/09/11', 'updated_at' => '2018/09/11'],
+        ]);
+
 
     }
 }
