@@ -22,7 +22,7 @@ class CreacionTablasAcademico extends Migration
 
         Schema::create('carreras', function (Blueprint $table) {
             $table->bigIncrements('idCarrera');
-            $table->string('nombre');
+            $table->string('carrera');
             $table->string('nivelAcademico');
             $table->timestamps();
             $table->softDeletes();
@@ -61,9 +61,9 @@ class CreacionTablasAcademico extends Migration
 
             Schema::create('aulas', function (Blueprint $table) {
                 $table->bigIncrements('idAula');
-                $table->string('nombre');
+                $table->string('aula');
                 $table->string('ubicacion');
-                $table->string('capacidad');
+                $table->bigInteger('capacidad');
                 $table->timestamps();
                 $table->softDeletes();
             });

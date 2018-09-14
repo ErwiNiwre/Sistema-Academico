@@ -30,7 +30,7 @@
                     <select>
                       <option>Activo</option>
                       <option>Desactivo</option>
-                    </select>
+                     </select>
                 </td>
               </tr>
             </tbody>
