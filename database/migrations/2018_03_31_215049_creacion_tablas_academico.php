@@ -99,7 +99,7 @@ class CreacionTablasAcademico extends Migration
                 $table->bigIncrements('idMateria');
                 $table->string('materia');
                 $table->string('sigla');
-                $table->string('periodo');
+                $table->string('tipo');
                 $table->bigInteger('carrera_idCarrera')->unsigned();
                 $table->bigInteger('nivel_idNivel')->unsigned();
                 $table->boolean('estado')->default(false);
