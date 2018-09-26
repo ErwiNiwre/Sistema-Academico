@@ -36,7 +36,9 @@ Route::get('administrador', function () {
 //Docente
 Route::resource('Docentes', 'DocentesController');
 
-
+Route::get('editarrr', function () {
+    return view('usuarios/editar');
+});
 
 
 Route::get('docente', function () {

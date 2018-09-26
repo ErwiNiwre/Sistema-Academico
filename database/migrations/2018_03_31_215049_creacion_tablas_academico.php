@@ -145,9 +145,7 @@ class CreacionTablasAcademico extends Migration
                 $table->string('telefono')->nullable();
                 $table->string('celular')->nullable();
                 $table->bigInteger('usuario_idUsuario')->unsigned();
-                $table->bigInteger('carrera_idCarrera')->unsigned();
                 $table->foreign('usuario_idUsuario')->references('idUsuario')->on('usuarios');
-                $table->foreign('carrera_idCarrera')->references('idCarrera')->on('carreras');
                 $table->rememberToken();
                 $table->timestamps();
                 $table->softDeletes();

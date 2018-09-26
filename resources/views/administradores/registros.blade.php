@@ -12,12 +12,16 @@
       <div class="row">
         <div class="col-sm-6">
           <div class="dataTables_length" id="example1_length">
+            <label>Otro:
+              {!! Form::select('carrera') !!}
+
+            </label>
             <label>Carreras: 
               <select name="example1_length" aria-controls="example1" class="form-control input-sm">
-                <option value="10">10</option>
-                <option value="25">25</option>
-                <option value="50">50</option>
-                <option value="100">100</option>
+                {{-- @foreach ($carreras as $carrera)
+                  <option value="{{ $carrera['idCarrera']}}">{{ $carrera['carrera']}}</option>    
+                @endforeach --}}
+                
               </select> 
               entries</label>
           </div>
@@ -52,7 +56,7 @@
                   <a class="btn btn-social-icon">
                     <i class="fa fa-edit"></i>
                   </a>
-                  <select>
+                  <select name="example1_length" aria-controls="example1" class="form-control input-sm">
                     <option>Activo</option>
                     <option>Desactivo</option>
                   </select>
