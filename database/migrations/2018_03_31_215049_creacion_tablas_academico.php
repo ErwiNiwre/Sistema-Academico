@@ -210,10 +210,18 @@ class CreacionTablasAcademico extends Migration
                 $table->string('celular')->nullable();
                 $table->enum('pensum', ['ANTIGUO', 'NUEVO'])->default('NUEVO');
                 $table->bigInteger('usuario_idUsuario')->unsigned();
-                $table->bigInteger('carrera_idCarrera')->unsigned();
                 $table->foreign('usuario_idUsuario')->references('idUsuario')->on('usuarios');
-                $table->foreign('carrera_idCarrera')->references('idCarrera')->on('carreras');
                 $table->rememberToken();
+                $table->timestamps();
+                $table->softDeletes();
+            });
+
+            Schema::create('estudiante_carrera', function (Blueprint $table) {
+                $table->bigIncrements('id');
+                $table->bigInteger('estudiante_idEstudiante')->unsigned();
+                $table->bigInteger('carrera_idCarrera')->unsigned();
+                $table->foreign('estudiante_idEstudiante')->references('idEstudiante')->on('estudiantes');
+                $table->foreign('carrera_idCarrera')->references('idCarrera')->on('carreras');
                 $table->timestamps();
                 $table->softDeletes();
             });
