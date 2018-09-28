@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Carrera;
 
 class EstudiantesController extends Controller
 {
@@ -13,7 +14,9 @@ class EstudiantesController extends Controller
      */
     public function index()
     {
-        //
+        $carrera = Carrera::all();
+        // return $carrera;
+       return view('estudiantes.estudiante',['carrera'=>$carrera]);
     }
 
     /**
