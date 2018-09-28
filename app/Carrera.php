@@ -17,17 +17,12 @@ class Carrera extends Model
         return $this->hasMany('App\Administrativo');
     }
 
-    public function docentes()
-    {
-        return $this->hasMany('App\Docente');
-    }
-
     public function estudiantes()
     {
-        return $this->hasMany('App\Estudiante');
+        return $this->belongsToMany('App\Estudiante','estudiante_carrera','carrera_idCarrera','estudiante_idEstudiante');
     }
 
-    public function docente()
+    public function docentes()
     {
         return $this->belongsToMany('App\Docente','docente_carrera','carrera_idCarrera','docente_idDocente');
     }

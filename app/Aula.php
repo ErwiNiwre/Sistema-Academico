@@ -14,7 +14,7 @@ class Aula extends Model
 
     public function horarios()
     {
-        return $this->hasMany('App\horario');
+        return $this->hasMany('App\Horario');
     }
 
     public function materias()
