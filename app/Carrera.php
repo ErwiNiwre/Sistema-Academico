@@ -19,7 +19,7 @@ class Carrera extends Model
 
     public function docentes()
     {
-        return $this->hasMany('App\docente');
+        return $this->hasMany('App\Docente');
     }
 
     public function estudiantes()

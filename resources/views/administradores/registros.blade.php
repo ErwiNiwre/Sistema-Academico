@@ -1,5 +1,8 @@
 @extends('layouts.incos_inicio')
 
+@section('titulo')
+    Docentes y Carreras
+@endsection
 @section('content')
 
 <div class="box">
@@ -12,18 +15,15 @@
       <div class="row">
         <div class="col-sm-6">
           <div class="dataTables_length" id="example1_length">
-            <label>Otro:
-              {!! Form::select('carrera') !!}
-
-            </label>
+            {{-- {{ Form::select('carrera', $carrera, null, ['class' => 'form-control select2','placeholder' => 'Select a client...']) }} --}}
             <label>Carreras: 
+              {{ $carrera }}
               <select name="example1_length" aria-controls="example1" class="form-control input-sm">
-                {{-- @foreach ($carreras as $carrera)
-                  <option value="{{ $carrera['idCarrera']}}">{{ $carrera['carrera']}}</option>    
-                @endforeach --}}
-                
+                @foreach ($carrera as $carreras)
+                  <option value="{{ $carreras['id']}}">{{ $carreras['carrera']}}</option>    
+                @endforeach
               </select> 
-              entries</label>
+            </label>
           </div>
         </div>
         <div class="col-sm-6">
@@ -32,7 +32,12 @@
               <input type="search" class="form-control input-sm" placeholder="" aria-controls="example1">
             </label>
           </div>
+           <div class="pull-right">
+          <button type="button" class="btn btn-default btn-sm">
+            <i class="fa fa-plus"></i></button>
         </div>
+        </div>
+       
       </div>
       <div class="row">
         <div class="col-sm-12">

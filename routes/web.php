@@ -15,6 +15,18 @@ Route::get('/', function () {
     return view('layouts.incos_inicio');
 });
 
+// Super Administrador
+Route::get('/Admin','AdministradoresController@carrera');
+Route::get('/Admin/registro','AdministradoresController@docente');
+Route::get('/Admin/nuevo','AdministradoresController@nuevo');
+
+
+
+
+
+
+
+
 Route::get('prueba', function () {
     return view('prueba');
 });
@@ -29,9 +41,16 @@ Route::get('super_administrador', function () {
 });
 
 //Administrador
-Route::get('administrador', function () {
-    return view('administradores/registros');
-});
+// Route::resource ('Registros', 'AdministradoresController    ');
+// Route::get('/registross', function () {
+//     $carrera =DB::table('carreras')->where('idCarrera',3)->get();
+
+//     return $carrera;
+//     return view('layouts.incos_inicio');
+// });
+// Route::get('administrador', function () {
+//     return view('administradores/registros');
+// });
 
 //Docente
 Route::resource('Docentes', 'DocentesController');
