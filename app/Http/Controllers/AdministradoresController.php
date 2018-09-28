@@ -19,11 +19,27 @@ class AdministradoresController extends Controller
         //return view('administradores.registros')->with($carrera);
     }
 
-    public function carrera()
+    public function admin()
     {
         // $carrera = DB::table('carreras')->where('idCarrera', 3)->get();
         $carrera = Carrera::all();
         // return $carrera;
-        return view('administradores.registros',['carrera'=>$carrera]);
+        return view('administrativo.admin',['carrera'=>$carrera]);
+    }
+
+    public function docente()
+    {
+        // $carrera = DB::table('carreras')->where('idCarrera', 3)->get();
+        $carrera = Carrera::all();
+        // return $carrera;
+        return view('administradores.docentes_registro',['carrera'=>$carrera]);
+    }
+
+    public function estudiante()
+    {
+        // $carrera = DB::table('carreras')->where('idCarrera', 3)->get();
+        $carrera = Carrera::all();
+        // return $carrera;
+        return view('administradores.estudiante_registro',['carrera'=>$carrera]);
     }
 }

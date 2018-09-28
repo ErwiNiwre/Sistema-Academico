@@ -1,4 +1,3 @@
-
 <section class="content col-xs-12 col-lg-12">
     <div class="box box-info">
         <div class="box-header with-border">

@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Carrera;
 
-class DocentesController extends Controller
+class AdministrativosController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +14,9 @@ class DocentesController extends Controller
      */
     public function index()
     {
-        //
+       $carrera = Carrera::all();
+        // return $carrera;
+       return view('administrativos.admin',['carrera'=>$carrera]);
     }
 
     /**

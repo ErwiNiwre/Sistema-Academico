@@ -16,10 +16,9 @@ Route::get('/', function () {
 });
 
 // Super Administrador
-Route::get('/Admin','AdministradoresController@carrera');
-Route::get('/Admin/registro','AdministradoresController@docente');
-Route::get('/Admin/nuevo','AdministradoresController@nuevo');
-
+Route::get('Admin','AdministrativosController@index');
+Route::get('Admin/registro','AdministrativosController@create');
+//Route::get('Admin/nuevo','AdministradoresController@nuevo');
 
 
 
