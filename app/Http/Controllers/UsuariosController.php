@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Usuario;
 class UsuariosController extends Controller
 {
     /**
@@ -34,7 +34,13 @@ class UsuariosController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //registrar
+        $usuario=new Usuario;
+    	$usuario->usuario=bcrypt($request->usuario);
+    	$usuario->password=$request->contrasena;
+        $usuario->rol_idRol=$request->rol;
+        $usuario->save();
+        return view('docentes.docente_registro');
     }
 
     /**

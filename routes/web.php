@@ -23,6 +23,7 @@ Route::get('Admin/registro','AdministrativosController@create');
 // Docente
 Route::get('Docente','DocentesController@index');
 Route::get('Docente/registro','DocentesController@create');
+Route::post('registrar', ['as'=>'registrar', 'doc'=>'DocentesController@store']);
 //Route::get('Admin/nuevo','AdministradoresController@nuevo');
 
 // Estudiante
@@ -30,6 +31,8 @@ Route::get('Estudiante','EstudiantesController@index');
 Route::get('Estudiante/registro','EstudiantesController@create');
 //Route::get('Admin/nuevo','AdministradoresController@nuevo');
 
+//usuarioss
+Route::post('registrar', ['as'=>'registrar', 'doc'=>'UsuariosController@store']);
 
 
 
