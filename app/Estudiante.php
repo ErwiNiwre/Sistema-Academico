@@ -12,6 +12,11 @@ class Estudiante extends Model
         return $this->belongsTo('App\Usuario');
     }
 
+    public function departamentos()
+    {
+        return $this->belongsTo('App\Departamento');
+    }
+
     public function bi_notas()
     {
         return $this->hasMany('App\Bi_nota');
