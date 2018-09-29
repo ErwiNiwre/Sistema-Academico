@@ -20,6 +20,14 @@ class CreacionTablasAcademico extends Migration
             $table->softDeletes();
         });
 
+        Schema::create('departamentos', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('departamento');
+            $table->string('abreviatura');
+            $table->timestamps();
+            $table->softDeletes();
+        });
+
         Schema::create('carreras', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('carrera');
@@ -134,7 +142,7 @@ class CreacionTablasAcademico extends Migration
                 $table->bigIncrements('id');
                 $table->bigInteger('item')->unsigned()->nullable(); //
                 $table->bigInteger('ci')->unsigned()->nullable(); //identificación del ci
-                $table->string('expedido')->nullable();    //expedido
+                $table->bigInteger('expedido')->unsigned();    //expedido
                 $table->string('aPaterno');
                 $table->string('aMaterno');
                 $table->string('nombre');
@@ -146,6 +154,7 @@ class CreacionTablasAcademico extends Migration
                 $table->string('celular')->nullable();
                 $table->bigInteger('usuario_idUsuario')->unsigned();
                 $table->foreign('usuario_idUsuario')->references('id')->on('usuarios');
+                $table->foreign('expedido')->references('id')->on('departamentos');
                 $table->rememberToken();
                 $table->timestamps();
                 $table->softDeletes();
@@ -175,7 +184,7 @@ class CreacionTablasAcademico extends Migration
                 $table->bigIncrements('id');
                 $table->bigInteger('item')->unsigned()->nullable(); //
                 $table->bigInteger('ci')->unsigned()->nullable(); //identificación del ci
-                $table->string('expedido')->nullable();    //expedido
+                $table->bigInteger('expedido')->unsigned();    //expedido
                 $table->string('aPaterno');
                 $table->string('aMaterno');
                 $table->string('nombre');
@@ -189,6 +198,7 @@ class CreacionTablasAcademico extends Migration
                 $table->bigInteger('carrera_idCarrera')->unsigned();
                 $table->foreign('usuario_idUsuario')->references('id')->on('usuarios');
                 $table->foreign('carrera_idCarrera')->references('id')->on('carreras');
+                $table->foreign('expedido')->references('id')->on('departamentos');
                 $table->rememberToken();
                 $table->timestamps();
                 $table->softDeletes();
@@ -198,7 +208,7 @@ class CreacionTablasAcademico extends Migration
                 $table->bigIncrements('id');
                 $table->bigInteger('matricula')->unsigned()->nullable(); //
                 $table->bigInteger('ci')->unsigned()->nullable(); //identificación del ci
-                $table->string('expedido')->nullable();    //expedido
+                $table->bigInteger('expedido')->unsigned();    //expedido
                 $table->string('aPaterno');
                 $table->string('aMaterno');
                 $table->string('nombre');
@@ -211,6 +221,7 @@ class CreacionTablasAcademico extends Migration
                 $table->enum('pensum', ['ANTIGUO', 'NUEVO'])->default('NUEVO');
                 $table->bigInteger('usuario_idUsuario')->unsigned();
                 $table->foreign('usuario_idUsuario')->references('id')->on('usuarios');
+                $table->foreign('expedido')->references('id')->on('departamentos');
                 $table->rememberToken();
                 $table->timestamps();
                 $table->softDeletes();

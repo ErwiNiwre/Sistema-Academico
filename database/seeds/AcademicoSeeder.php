@@ -22,6 +22,18 @@ class AcademicoSeeder extends Seeder
             ['id' => '7', 'rol' => 'POSTULANTES', 'created_at' => '2018/09/11', 'updated_at' => '2018/09/11'],
         ]);
 
+        DB::table('departamentos')->insert([
+            ['id' => '1', 'departamento' => 'LA PAZ', 'abreviatura' => 'LP', 'created_at' => '2018/09/11', 'updated_at' => '2018/09/11'],
+            ['id' => '2', 'departamento' => 'ORURO', 'abreviatura' => '0R', 'created_at' => '2018/09/11', 'updated_at' => '2018/09/11'],
+            ['id' => '3', 'departamento' => 'COCHABAMBA', 'abreviatura' => 'CB', 'created_at' => '2018/09/11', 'updated_at' => '2018/09/11'],
+            ['id' => '4', 'departamento' => 'SANTA CRUZ', 'abreviatura' => 'SC', 'created_at' => '2018/09/11', 'updated_at' => '2018/09/11'],
+            ['id' => '5', 'departamento' => 'BENI', 'abreviatura' => 'BN', 'created_at' => '2018/09/11', 'updated_at' => '2018/09/11'],
+            ['id' => '6', 'departamento' => 'PANDO', 'abreviatura' => 'PA', 'created_at' => '2018/09/11', 'updated_at' => '2018/09/11'],
+            ['id' => '7', 'departamento' => 'CHUQUISACA', 'abreviatura' => 'CH', 'created_at' => '2018/09/11', 'updated_at' => '2018/09/11'],
+            ['id' => '8', 'departamento' => 'TARIJA', 'abreviatura' => 'TJ', 'created_at' => '2018/09/11', 'updated_at' => '2018/09/11'],
+            ['id' => '9', 'departamento' => 'POTOSI', 'abreviatura' => 'PT', 'created_at' => '2018/09/11', 'updated_at' => '2018/09/11'],
+        ]);
+
         DB::table('carreras')->insert([
             ['id' => '1', 'carrera' => 'CONTADURÍA GENERAL', 'nivelAcademico' => 'TÉCNICO SUPERIOR', 'created_at' => '2018/09/11', 'updated_at' => '2018/09/11'],
             ['id' => '2', 'carrera' => 'SECRETARIADO EJECUTIVO', 'nivelAcademico' => 'TÉCNICO SUPERIOR', 'created_at' => '2018/09/11', 'updated_at' => '2018/09/11'],
