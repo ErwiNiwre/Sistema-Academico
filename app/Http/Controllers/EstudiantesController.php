@@ -16,7 +16,7 @@ class EstudiantesController extends Controller
     {
         $carrera = Carrera::all();
         // return $carrera;
-       return view('estudiantes.estudiantex',['carrera'=>$carrera]);
+       return view('estudiantes.estudiante',['carrera'=>$carrera]);
     }
 
     /**

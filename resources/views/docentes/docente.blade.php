@@ -36,7 +36,7 @@
                 <button type="button" class="btn btn-default btn-sm">
                     <i class="fa fa-plus"></i></button>
                     <h3 data-toggle="tooltip" data-placement="top" class="pull-left">
-                        <a href="{{ url('Admin/registro') }}" style="color: red">Información Personal</a>
+                        <a href="{{ url('Docente/registro') }}" style="color: red">Información Personal</a>
                     </h3>
             </div>
         </div>

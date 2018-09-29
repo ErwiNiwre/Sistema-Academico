@@ -3,9 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Carrera;
-use App\Departamento;
-class DocentesController extends Controller
+
+class UsuariosController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +13,7 @@ class DocentesController extends Controller
      */
     public function index()
     {
-        $carrera = Carrera::all();
-        // return $carrera;
-        return view('docentes.docente', ['carrera' => $carrera]);
+        //
     }
 
     /**
@@ -27,9 +24,6 @@ class DocentesController extends Controller
     public function create()
     {
         //
-        $departamento = Departamento::all();
-        // return $carrera;
-        return view('docentes.docente_registro', ['departamento' => $departamento]);
     }
 
     /**
