@@ -19,8 +19,8 @@
             <div class="col-sm-3">
                 {{--  {{ $departamento }}  --}}
                 <select name="example1_length" aria-controls="example1" class="form-control input-sm">
-                  @foreach ($departamento as $departamentos)
-                    <option value="{{ $departamentos['id']}}">{{ $departamentos['abreviatura']}}</option>    
+                  @foreach ($departamentos as $departamento)
+                    <option value="{{ $departamento['id']}}">{{ $departamento['abreviatura']}}</option>    
                   @endforeach
                 </select> 
             </div>

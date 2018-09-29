@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Carrera;
 use App\Departamento;
+use App\Rol;
 class DocentesController extends Controller
 {
     /**
@@ -27,9 +28,14 @@ class DocentesController extends Controller
     public function create()
     {
         //
-        $departamento = Departamento::all();
+        $roles=Rol::all();
+        $departamentos = Departamento::all();
         // return $carrera;
-        return view('docentes.docente_registro', ['departamento' => $departamento]);
+        $datos= array(
+            'departamentos' => $departamentos,
+            'roles' => $roles
+        );
+        return view('docentes.docente_registro')->with($datos);
     }
 
     /**
