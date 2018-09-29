@@ -17,6 +17,11 @@ class Administrativo extends Model
         return $this->belongsTo('App\Usuario');
     }
 
+    public function departamentos()
+    {
+        return $this->belongsTo('App\Departamento');
+    }
+
     public function turnos()
     {
         return $this->belongsToMany('App\Turno','administrativo_turno','administrativo_idAdministrativo','turno_idTurno');
