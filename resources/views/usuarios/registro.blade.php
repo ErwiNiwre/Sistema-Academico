@@ -16,12 +16,13 @@
             </div>
         </div>
         <div class="form-group">
-            <div class="col-sm-offset-2 col-sm-10">
-                <div class="checkbox">
-                    <label>
-                        <input type="checkbox"> Remember me
-                    </label>
-                </div>
+            <label for="inputPassword3" class="col-sm-2 control-label">Rol:</label>
+            <div class="col-sm-10">
+                <select name="rol" aria-controls="example1" class="form-control input-sm">
+                    @foreach ($roles as $rol)
+                        <option value="{{ $rol['id']}}">{{ $rol['rol']}}</option>    
+                    @endforeach
+                </select> 
             </div>
         </div>
     </div>
