@@ -17,6 +17,11 @@ class Docente extends Model
         return $this->belongsToMany('App\Turno','docente_turno','docente_idDocente','turno_idTurno');
     }
 
+    public function departamentos()
+    {
+        return $this->belongsTo('App\Departamento');
+    }
+
     public function carreras()
     {
         return $this->belongsToMany('App\Carrera','docente_carrera','docente_idDocente','carrera_idCarrera');
