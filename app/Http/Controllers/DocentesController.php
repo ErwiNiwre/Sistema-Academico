@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Carrera;
 use App\Departamento;
 use App\Rol;
+use App\Usuario;
 class DocentesController extends Controller
 {
     /**
@@ -45,7 +46,7 @@ class DocentesController extends Controller
     	$usuario->password=bcrypt(request()->contrasena);
         $usuario->rol_idRol=request()->rol;
         $usuario->save();
-        return view('docentes.docente_registro');
+        return redirect('Docente/registro');
     }
 
     
