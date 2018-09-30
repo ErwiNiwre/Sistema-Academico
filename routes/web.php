@@ -32,9 +32,9 @@ Route::get('Estudiante/registro','EstudiantesController@create');
 //Route::get('Admin/nuevo','AdministradoresController@nuevo');
 
 //usuarioss
-Route::post('registrar', ['as'=>'registrar', 'doc'=>'UsuariosController@store']);
+//Route::post('registrarusu', ['as'=>'registrar', 'doc'=>'UsuariosController@store']);
 
-
+Route::post('registraru','UsuariosController@store');
 
 // Route::get('prueba', function () {
 //     return view('prueba');

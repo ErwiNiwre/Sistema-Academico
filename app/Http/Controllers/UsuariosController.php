@@ -32,17 +32,24 @@ class UsuariosController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store()
     {
         //registrar
+        //dd(request()->all()); ver que reciba
+        // $u=$request->usuario;
+        // return $u;
         $usuario=new Usuario;
-    	$usuario->usuario=bcrypt($request->usuario);
-    	$usuario->password=$request->contrasena;
-        $usuario->rol_idRol=$request->rol;
+    	$usuario->usuario=request()->usuario;
+    	$usuario->password=bcrypt(request()->contrasena);
+        $usuario->rol_idRol=request()->rol;
         $usuario->save();
         return view('docentes.docente_registro');
     }
-
+    public function aa()
+    {
+        //registrar
+        return "aa";
+    }
     /**
      * Display the specified resource.
      *
