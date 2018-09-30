@@ -141,7 +141,7 @@ class CreacionTablasAcademico extends Migration
             Schema::create('docentes', function (Blueprint $table) {
                 $table->bigIncrements('id');
                 $table->bigInteger('item')->unsigned()->nullable(); //
-                $table->bigInteger('ci')->unsigned()->nullable(); //identificación del ci
+                $table->string('ci')->nullable(); //identificación del ci
                 $table->bigInteger('expedido')->unsigned();    //expedido
                 $table->string('aPaterno');
                 $table->string('aMaterno');
@@ -183,7 +183,7 @@ class CreacionTablasAcademico extends Migration
             Schema::create('administrativos', function (Blueprint $table) {
                 $table->bigIncrements('id');
                 $table->bigInteger('item')->unsigned()->nullable(); //
-                $table->bigInteger('ci')->unsigned()->nullable(); //identificación del ci
+                $table->string('ci')->nullable(); //identificación del ci
                 $table->bigInteger('expedido')->unsigned();    //expedido
                 $table->string('aPaterno');
                 $table->string('aMaterno');
@@ -207,7 +207,7 @@ class CreacionTablasAcademico extends Migration
             Schema::create('estudiantes', function (Blueprint $table) {
                 $table->bigIncrements('id');
                 $table->bigInteger('matricula')->unsigned()->nullable(); //
-                $table->bigInteger('ci')->unsigned()->nullable(); //identificación del ci
+                $table->string('ci')->nullable(); //identificación del ci
                 $table->bigInteger('expedido')->unsigned();    //expedido
                 $table->string('aPaterno');
                 $table->string('aMaterno');

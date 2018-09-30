@@ -7,6 +7,7 @@ use App\Carrera;
 use App\Departamento;
 use App\Rol;
 use App\Usuario;
+use App\Docente;
 class DocentesController extends Controller
 {
     /**
@@ -45,38 +46,33 @@ class DocentesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store()
     {
         //registrar
+        //dd(request()->all()); ver datos
         $docente=new Docente;
-        $item = $request->nombres;
-        $a = $request->apellidos;
-        $sexo = $request->sexo;         
-        $email=$request->email;
-        $contraseña=bcrypt($request->contraseña);
+    	$docente->item=request()->item;
+    	$docente->ci=request()->ci;
+    	$docente->expedido=request()->abreviatura;
+    	$docente->aPaterno=request()->paterno;
+    	$docente->aMaterno=request()->materno;
+    	$docente->nombre=request()->nombre;
+    	$docente->fechaNacimiento=request()->fecha;
+    	$docente->genero=request()->genero;
+    	$docente->correo=request()->correo;
+        $docente->direccion=request()->direccion;
         
-    	$docente->item=$nombres;
-    	$docente->ci=$apellidos;
-    	$docente->expedido=$sexo;
-    	$docente->aPaterno=$email;
-    	$docente->aMaterno=$contraseña;
-
-    	$docente->nombre=$nombres;
-    	$docente->fechaNacimiento=$apellidos;
-    	$docente->genero=$sexo;
-    	$docente->correo=$email;
-        $docente->direccion=$contraseña;
+    	$docente->telefono=request()->telefono;
+        $docente->celular=request()->celular;
         
-    	$docente->telefono=$nombres;
-        $docente->celular=$apellidos;
-        
-
-    	$docente->usuario_idUsuario=$sexo;
+        $userid=Usuario::where('usuario', request()->ci) ->first();
+    	$docente->usuario_idUsuario=$userid->id;
 
         $docente->save();
+        return back();
        // $user->create($request->all());
-        return redirect('lista');
-    }
+        // return redirect('lista');
+     }
 
     /**
      * Display the specified resource.
