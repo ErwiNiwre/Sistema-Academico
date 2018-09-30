@@ -23,7 +23,7 @@ Route::get('Admin/registro','AdministrativosController@create');
 // Docente
 Route::get('Docente','DocentesController@index');
 Route::get('Docente/registro','DocentesController@create');
-Route::post('registrar', ['as'=>'registrar', 'doc'=>'DocentesController@store']);
+Route::post('registrardoc','DocentesController@store');
 //Route::get('Admin/nuevo','AdministradoresController@nuevo');
 
 // Estudiante
