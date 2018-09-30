@@ -1,7 +1,7 @@
 <div class="box-header with-border">
     <h3 class="box-title">Datos</h3>
 </div>
-<form class="form-horizontal">
+<form class="form-horizontal" action="{{route('registrar')}}" method="POST">
     <div class="box-body">
         <label class="control-label">Item:</label>
         <div class="form-group">

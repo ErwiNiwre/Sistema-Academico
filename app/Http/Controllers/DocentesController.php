@@ -46,7 +46,35 @@ class DocentesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //registrar
+        $docente=new Docente;
+        $item = $request->nombres;
+        $a = $request->apellidos;
+        $sexo = $request->sexo;         
+        $email=$request->email;
+        $contraseña=bcrypt($request->contraseña);
+        
+    	$docente->item=$nombres;
+    	$docente->ci=$apellidos;
+    	$docente->expedido=$sexo;
+    	$docente->aPaterno=$email;
+    	$docente->aMaterno=$contraseña;
+
+    	$docente->nombre=$nombres;
+    	$docente->fechaNacimiento=$apellidos;
+    	$docente->genero=$sexo;
+    	$docente->correo=$email;
+        $docente->direccion=$contraseña;
+        
+    	$docente->telefono=$nombres;
+        $docente->celular=$apellidos;
+        
+
+    	$docente->usuario_idUsuario=$sexo;
+
+        $docente->save();
+       // $user->create($request->all());
+        return redirect('lista');
     }
 
     /**
