@@ -37,19 +37,7 @@ class DocentesController extends Controller
             'roles' => $roles
         );
         return view('docentes.docente_registro')->with($datos);
-    }
-
-    public function usuRegistra()
-    {
-        $usuario=new Usuario;
-    	$usuario->usuario=request()->usuario;
-    	$usuario->password=bcrypt(request()->contrasena);
-        $usuario->rol_idRol=request()->rol;
-        $usuario->save();
-        return redirect('Docente/registro');
-    }
-
-    
+    } 
 
     /**
      * Store a newly created resource in storage.

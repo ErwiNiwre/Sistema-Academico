@@ -38,11 +38,12 @@ class UsuariosController extends Controller
         //dd(request()->all()); ver que reciba
         // $u=$request->usuario;
         // return $u;
-        // $usuario=new Usuario;
-    	// $usuario->usuario=request()->usuario;
-    	// $usuario->password=bcrypt(request()->contrasena);
-        // $usuario->rol_idRol=request()->rol;
-        // $usuario->save();
+        $usuario=new Usuario;
+    	$usuario->usuario=request()->usuario;
+    	$usuario->password=bcrypt(request()->contrasena);
+        $usuario->rol_idRol=request()->rol;
+        $usuario->save();
+        return back();
         // return view('docentes.docente_registro');
     }
     public function aa()
