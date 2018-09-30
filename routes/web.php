@@ -34,7 +34,8 @@ Route::get('Estudiante/registro','EstudiantesController@create');
 //usuarioss
 //Route::post('registrarusu', ['as'=>'registrar', 'doc'=>'UsuariosController@store']);
 
-Route::post('registraru','UsuariosController@store');
+// Route::post('registraru','UsuariosController@store');
+Route::post('registraru','DocentesController@usuRegistra');
 
 // Route::get('prueba', function () {
 //     return view('prueba');

@@ -2,8 +2,7 @@
     <h3 class="box-title">Usuario</h3>
 </div>
 <form class="form-horizontal" action="{{ asset('registraru') }}" method="POST">
-        
-        {{ csrf_field() }}
+    {{ csrf_field() }}
     <div class="box-body">
         <div class="form-group">
             <label for="inputEmail3" class="col-sm-2 control-label">Usuario:</label>
