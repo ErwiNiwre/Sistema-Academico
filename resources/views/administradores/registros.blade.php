@@ -17,10 +17,10 @@
           <div class="dataTables_length" id="example1_length">
             {{-- {{ Form::select('carrera', $carrera, null, ['class' => 'form-control select2','placeholder' => 'Select a client...']) }} --}}
             <label>Carreras: 
-              {{-- {{ $carrera }} --}}
+              {{ $docentes }}
               <select name="example1_length" aria-controls="example1" class="form-control input-sm">
-                @foreach ($carrera as $carreras)
-                  <option value="{{ $carreras['id']}}">{{ $carreras['carrera']}}</option>    
+                @foreach ($carreras as $carrera)
+                  <option value="{{ $carrera['id']}}">{{ $carrera['carrera']}}</option>    
                 @endforeach
               </select> 
             </label>

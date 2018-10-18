@@ -4,6 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Usuario;
+use App\Rol;
+use App\Docente;
+use App\Departamento;
+use App\Estudiante;
+use App\Administrativo;
 class UsuariosController extends Controller
 {
     /**
@@ -46,11 +51,7 @@ class UsuariosController extends Controller
         return back();
         // return view('docentes.docente_registro');
     }
-    public function aa()
-    {
-        //registrar
-        return "aa";
-    }
+    
     /**
      * Display the specified resource.
      *
@@ -68,9 +69,16 @@ class UsuariosController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Usuario $usuario)
     {
-        //
+        // $docentes=Docente::where('usuario_idUsuario','=',$docente->id)->first();
+        $roles=Rol::all();
+        $datos= array(
+            'usuarios' => $usuario,
+            'roles' => $roles
+        );
+        // return "HOLAAAAAAA";
+        return view('usuarios.editar')->with($datos);
     }
 
     /**
@@ -80,9 +88,50 @@ class UsuariosController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
-    {
-        //
+    public function update(Usuario $usuario)
+    { 
+        if ($usuario->rol_idRol==5) {
+            $docentes = Docente::where('usuario_idUsuario', '=', $usuario->id)->first();
+        } else {
+            if ($usuario->rol_idRol==6) {
+                $estudiantes = Estudiante::where('usuario_idUsuario', '=', $usuario->id)->first();
+            } else {
+                if ($usuario->rol_idRol==7) {
+                    // $docentes = Postulante::where('usuario_idUsuario', '=', $usuario->id)->first();
+                } else {
+                    $administrativos = Administrativo::where('usuario_idUsuario', '=', $usuario->id)->first();
+                }
+                
+            }
+        }
+        // $usuario->usuario=request()->usuario;
+        $usuario->password=bcrypt(request()->contrasena);
+        $usuario->save();
+        $departamentos = Departamento::all();
+        $roles=Rol::all();
+        $datos= array(
+            'docentes'=>$docentes,
+            'departamentos' => $departamentos,
+            'usuarios' => $usuario,
+            'roles' => $roles
+        );
+        if ($usuario->rol_idRol==5) {
+            return redirect("/Docentes/$docentes->id");
+        } else {
+            if ($usuario->rol_idRol==6) {
+                return redirect("/Estudiantes/$estudiantes->id");
+            } else {
+                if ($usuario->rol_idRol==7) {
+                    // return redirect("/Postulantes/$postulantes->id");
+                } else {
+                    return redirect("/Admin/$administrativos->id");
+                }
+                
+            }
+        }
+        
+        // return redirect("/Docentes/$docentes->id");
+        // return view('docentes.docente_datos')->with($datos);
     }
 
     /**

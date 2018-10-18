@@ -8,11 +8,11 @@
 <section class="content">
     <div class="row">
         <div class="col-md-6">
-            {{-- <div class="box box-primary"> --}}
-                {{-- @include('usuarios.editar') --}}
-            {{-- </div> --}}
+            <div class="box box-primary">
+                @include('usuarios.index')
+            </div>
             <div class="box box-danger">
-                    @include('docentes.editar')
+                    @include('docentes.index')
             </div>
             <div class="box box-info">
                 <div class="box-header with-border">
@@ -60,7 +60,4 @@
         </div>
     </div>
 </section>
-
-
-
 @endsection

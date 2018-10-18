@@ -76,9 +76,9 @@
                 </span>
             </a>
             <ul class="treeview-menu">
-              <li><a href="{{ url('Admin') }}">ADMINISTRATIVOS</a></li>
-              <li><a href="{{ url('Docente') }}">DOCENTES</a></li>
-              <li><a href="{{ url('Estudiante') }}">ESTUDIANTES</a></li>
+              <li><a href="{{ url('Admins') }}">ADMINISTRATIVOS</a></li>
+              <li><a href="{{ url('Docentes') }}">DOCENTES</a></li>
+              <li><a href="{{ url('Estudiantes') }}">ESTUDIANTES</a></li>
             </ul>
           </li>
           <li class="treeview">

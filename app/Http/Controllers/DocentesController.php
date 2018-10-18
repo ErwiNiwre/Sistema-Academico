@@ -17,9 +17,14 @@ class DocentesController extends Controller
      */
     public function index()
     {
-        $carrera = Carrera::all();
+        $carreras = Carrera::all();
+        $docentes = Docente::all();
         // return $carrera;
-        return view('docentes.docente', ['carrera' => $carrera]);
+        $datos=array(
+            'carreras' => $carreras,
+            'docentes' => $docentes
+        );
+        return view('docentes.docente')->with($datos);
     }
 
     /**
@@ -54,10 +59,10 @@ class DocentesController extends Controller
     	$docente->item=request()->item;
     	$docente->ci=request()->ci;
     	$docente->expedido=request()->abreviatura;
-    	$docente->aPaterno=request()->paterno;
-    	$docente->aMaterno=request()->materno;
+    	$docente->aPaterno=request()->aPaterno;
+    	$docente->aMaterno=request()->aMaterno;
     	$docente->nombre=request()->nombre;
-    	$docente->fechaNacimiento=request()->fecha;
+    	$docente->fechaNacimiento=request()->fechaNacimiento;
     	$docente->genero=request()->genero;
     	$docente->correo=request()->correo;
         $docente->direccion=request()->direccion;
@@ -69,9 +74,8 @@ class DocentesController extends Controller
     	$docente->usuario_idUsuario=$userid->id;
 
         $docente->save();
-        return back();
-       // $user->create($request->all());
-        // return redirect('lista');
+        // return back();
+        return redirect('/Docentes');
      }
 
     /**
@@ -80,9 +84,19 @@ class DocentesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Docente $docente)
     {
-        //
+        $usuarios=Usuario::where('id','=',$docente->usuario_idUsuario)->first();
+        $roles=Rol::all();
+        $departamentos = Departamento::all();
+        $datos= array(
+            'docentes'=>$docente,
+            'departamentos' => $departamentos,
+            'usuarios' => $usuarios,
+            'roles' => $roles
+        );
+        // return $usuarios;
+        return view('docentes.docente_datos')->with($datos);   
     }
 
     /**
@@ -91,9 +105,19 @@ class DocentesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Docente $docente)
     {
-        //
+        $userid=Usuario::where('id','=',$docente->usuario_idUsuario)->get();
+        $roles=Rol::all();
+        $departamentos = Departamento::all();
+        $datos= array(
+            'docentes'=>$docente,
+            'departamentos' => $departamentos,
+            'usuarios' => $userid,
+            'roles' => $roles
+        );
+        // return $u;
+        return view('docentes.editar')->with($datos);
     }
 
     /**
@@ -103,9 +127,33 @@ class DocentesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Docente $docente)
     {
-        //
+        $usuarios = Usuario::where('id', '=', $docente->usuario_idUsuario)->first();
+        $docente->item=request()->item;
+    	$docente->ci=request()->ci;
+    	$docente->expedido=request()->abreviatura;
+    	$docente->aPaterno=request()->aPaterno;
+    	$docente->aMaterno=request()->aMaterno;
+    	$docente->nombre=request()->nombre;
+    	$docente->fechaNacimiento=request()->fechaNacimiento;
+    	$docente->genero=request()->genero;
+    	$docente->correo=request()->correo;
+        $docente->direccion=request()->direccion;
+        
+    	$docente->telefono=request()->telefono;
+        $docente->celular=request()->celular;
+        $docente->save();
+        $departamentos = Departamento::all();
+        $roles=Rol::all();
+        $datos= array(
+            'docentes'=>$docente,
+            'departamentos' => $departamentos,
+            'usuarios' => $usuarios,
+            'roles' => $roles
+        );
+        // return $docente;
+        return view('docentes.docente_datos')->with($datos);
     }
 
     /**
