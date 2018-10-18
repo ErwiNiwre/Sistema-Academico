@@ -30,8 +30,14 @@ Route::patch('Docentes/{docente}','DocentesController@update');
 //Route::get('Admin/nuevo','AdministradoresController@nuevo');
 
 // Estudiante
-Route::get('Estudiante','EstudiantesController@index');
-Route::get('Estudiante/registro','EstudiantesController@create');
+// Route::get('Estudiante','EstudiantesController@index');
+// Route::get('Estudiante/registro','EstudiantesController@create');
+Route::get('Estudiantes','EstudiantesController@index');
+Route::get('Estudiantes/registro','EstudiantesController@create');
+Route::post('registrarest', 'EstudiantesController@store');
+Route::get('Estudiantes/{estudiante}','EstudiantesController@show');
+Route::get('Estudiantes/{estudiante}/editar','EstudiantesController@edit');
+Route::patch('Estudiantes/{estudiante}','EstudiantesController@update');
 //Route::get('Admin/nuevo','AdministradoresController@nuevo');
 
 //usuarioss
