@@ -8,6 +8,7 @@ use App\Departamento;
 use App\Rol;
 use App\Usuario;
 use App\Docente;
+
 class DocentesController extends Controller
 {
     /**
@@ -20,7 +21,7 @@ class DocentesController extends Controller
         $carreras = Carrera::all();
         $docentes = Docente::all();
         // return $carrera;
-        $datos=array(
+        $datos = array(
             'carreras' => $carreras,
             'docentes' => $docentes
         );
@@ -35,15 +36,15 @@ class DocentesController extends Controller
     public function create()
     {
         //
-        $roles=Rol::all();
+        $roles = Rol::all();
         $departamentos = Departamento::all();
         // return $carrera;
-        $datos= array(
+        $datos = array(
             'departamentos' => $departamentos,
             'roles' => $roles
         );
         return view('docentes.docente_registro')->with($datos);
-    } 
+    }
 
     /**
      * Store a newly created resource in storage.
@@ -55,28 +56,29 @@ class DocentesController extends Controller
     {
         //registrar
         //dd(request()->all()); ver datos
-        $docente=new Docente;
-    	$docente->item=request()->item;
-    	$docente->ci=request()->ci;
-    	$docente->expedido=request()->abreviatura;
-    	$docente->aPaterno=request()->aPaterno;
-    	$docente->aMaterno=request()->aMaterno;
-    	$docente->nombre=request()->nombre;
-    	$docente->fechaNacimiento=request()->fechaNacimiento;
-    	$docente->genero=request()->genero;
-    	$docente->correo=request()->correo;
-        $docente->direccion=request()->direccion;
-        
-    	$docente->telefono=request()->telefono;
-        $docente->celular=request()->celular;
-        
-        $userid=Usuario::where('usuario', request()->ci) ->first();
-    	$docente->usuario_idUsuario=$userid->id;
+        $docente = new Docente;
+        $docente->item = request()->item;
+        $docente->ci = request()->ci;
+        $docente->expedido = request()->abreviatura;
+        $docente->aPaterno = request()->aPaterno;
+        $docente->aMaterno = request()->aMaterno;
+        $docente->nombre = request()->nombre;
+        $docente->fechaNacimiento = request()->fechaNacimiento;
+        $docente->genero = request()->genero;
+        $docente->estadoCivil = request()->estadoCivil;
+        $docente->fechaIngreso = request()->fechaIngreso;
+        $docente->correo = request()->correo;
+        $docente->direccion = request()->direccion;
+        $docente->telefono = request()->telefono;
+        $docente->celular = request()->celular;
+
+        $userid = Usuario::where('usuario', request()->ci)->first();
+        $docente->usuario_idUsuario = $userid->id;
 
         $docente->save();
         // return back();
         return redirect('/Docentes');
-     }
+    }
 
     /**
      * Display the specified resource.
@@ -86,17 +88,17 @@ class DocentesController extends Controller
      */
     public function show(Docente $docente)
     {
-        $usuarios=Usuario::where('id','=',$docente->usuario_idUsuario)->first();
-        $roles=Rol::all();
+        $usuarios = Usuario::where('id', '=', $docente->usuario_idUsuario)->first();
+        $roles = Rol::all();
         $departamentos = Departamento::all();
-        $datos= array(
-            'docentes'=>$docente,
+        $datos = array(
+            'docentes' => $docente,
             'departamentos' => $departamentos,
             'usuarios' => $usuarios,
             'roles' => $roles
         );
         // return $usuarios;
-        return view('docentes.docente_datos')->with($datos);   
+        return view('docentes.docente_datos')->with($datos);
     }
 
     /**
@@ -107,11 +109,11 @@ class DocentesController extends Controller
      */
     public function edit(Docente $docente)
     {
-        $userid=Usuario::where('id','=',$docente->usuario_idUsuario)->get();
-        $roles=Rol::all();
+        $userid = Usuario::where('id', '=', $docente->usuario_idUsuario)->get();
+        $roles = Rol::all();
         $departamentos = Departamento::all();
-        $datos= array(
-            'docentes'=>$docente,
+        $datos = array(
+            'docentes' => $docente,
             'departamentos' => $departamentos,
             'usuarios' => $userid,
             'roles' => $roles
@@ -129,30 +131,36 @@ class DocentesController extends Controller
      */
     public function update(Docente $docente)
     {
+        // $userid = Usuario::where('id', '=', $docente->usuario_idUsuario)->get();
         $usuarios = Usuario::where('id', '=', $docente->usuario_idUsuario)->first();
-        $docente->item=request()->item;
-    	$docente->ci=request()->ci;
-    	$docente->expedido=request()->abreviatura;
-    	$docente->aPaterno=request()->aPaterno;
-    	$docente->aMaterno=request()->aMaterno;
-    	$docente->nombre=request()->nombre;
-    	$docente->fechaNacimiento=request()->fechaNacimiento;
-    	$docente->genero=request()->genero;
-    	$docente->correo=request()->correo;
-        $docente->direccion=request()->direccion;
         
-    	$docente->telefono=request()->telefono;
-        $docente->celular=request()->celular;
+        $docente->item = request()->item;
+        $docente->ci = request()->ci;
+        $docente->expedido = request()->abreviatura;
+        $docente->aPaterno = request()->aPaterno;
+        $docente->aMaterno = request()->aMaterno;
+        $docente->nombre = request()->nombre;
+        $docente->fechaNacimiento = request()->fechaNacimiento;
+        $docente->genero = request()->genero;
+        $docente->estadoCivil = request()->estadoCivil;
+        $docente->fechaIngreso = request()->fechaIngreso;
+        $docente->correo = request()->correo;
+        $docente->direccion = request()->direccion;
+        $docente->telefono = request()->telefono;
+        $docente->celular = request()->celular;
+
+        $docente->usuario_idUsuario = $usuarios->id;
+
         $docente->save();
         $departamentos = Departamento::all();
-        $roles=Rol::all();
-        $datos= array(
-            'docentes'=>$docente,
+        $roles = Rol::all();
+        $datos = array(
+            'docentes' => $docente,
             'departamentos' => $departamentos,
             'usuarios' => $usuarios,
             'roles' => $roles
         );
-        // return $docente;
+        // return $usuarios;
         return view('docentes.docente_datos')->with($datos);
     }
 

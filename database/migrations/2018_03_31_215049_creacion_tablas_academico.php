@@ -143,17 +143,17 @@ class CreacionTablasAcademico extends Migration
                 $table->bigInteger('item')->unsigned()->nullable(); //
                 $table->string('ci')->nullable(); //identificación del ci
                 $table->bigInteger('expedido')->unsigned();    //expedido
-                $table->string('aPaterno');
-                $table->string('aMaterno');
-                $table->string('nombre');
-                $table->date('fechaNacimiento');
+                $table->string('aPaterno')->nullable();
+                $table->string('aMaterno')->nullable();
+                $table->string('nombre')->nullable();
+                $table->date('fechaNacimiento')->nullable();
                 $table->enum('genero', ['M', 'F']);
                 $table->enum('estadoCivil', ['S', 'C', 'V']);
-                $table->date('fechaIngreso');
-                $table->string('correo')->unique();
-                $table->string('direccion');
-                $table->string('telefono');
-                $table->string('celular');
+                $table->date('fechaIngreso')->nullable();
+                $table->string('correo')->unique()->nullable();
+                $table->string('direccion')->nullable();
+                $table->string('telefono')->nullable();
+                $table->string('celular')->nullable();
                 $table->bigInteger('usuario_idUsuario')->unsigned();
                 $table->foreign('usuario_idUsuario')->references('id')->on('usuarios');
                 $table->foreign('expedido')->references('id')->on('departamentos');
@@ -187,17 +187,17 @@ class CreacionTablasAcademico extends Migration
                 $table->bigInteger('item')->unsigned()->nullable(); //
                 $table->string('ci')->nullable(); //identificación del ci
                 $table->bigInteger('expedido')->unsigned();    //expedido
-                $table->string('aPaterno');
-                $table->string('aMaterno');
-                $table->string('nombre');
-                $table->date('fechaNacimiento');
+                $table->string('aPaterno')->nullable();
+                $table->string('aMaterno')->nullable();
+                $table->string('nombre')->nullable();
+                $table->date('fechaNacimiento')->nullable();
                 $table->enum('genero', ['M', 'F']);
                 $table->enum('estadoCivil', ['S', 'C', 'V']);
-                $table->date('fechaIngreso');
-                $table->string('correo')->unique();
-                $table->string('direccion');
-                $table->string('telefono');
-                $table->string('celular');
+                $table->date('fechaIngreso')->nullable();
+                $table->string('correo')->unique()->nullable();
+                $table->string('direccion')->nullable();
+                $table->string('telefono')->nullable();
+                $table->string('celular')->nullable();
                 $table->bigInteger('usuario_idUsuario')->unsigned();
                 $table->bigInteger('carrera_idCarrera')->unsigned();
                 $table->foreign('usuario_idUsuario')->references('id')->on('usuarios');
@@ -213,16 +213,16 @@ class CreacionTablasAcademico extends Migration
                 $table->bigInteger('matricula')->unsigned()->nullable(); //
                 $table->string('ci')->nullable(); //identificación del ci
                 $table->bigInteger('expedido')->unsigned();    //expedido
-                $table->string('aPaterno');
-                $table->string('aMaterno');
-                $table->string('nombre');
-                $table->date('fechaNacimiento');
+                $table->string('aPaterno')->nullable();
+                $table->string('aMaterno')->nullable();
+                $table->string('nombre')->nullable();
+                $table->date('fechaNacimiento')->nullable();
                 $table->enum('genero', ['M', 'F']);
                 $table->enum('estadoCivil', ['S', 'C', 'V']);
-                $table->string('correo')->unique();
-                $table->string('direccion');
-                $table->string('telefono');
-                $table->string('celular');
+                $table->string('correo')->unique()->nullable();
+                $table->string('direccion')->nullable();
+                $table->string('telefono')->nullable();
+                $table->string('celular')->nullable();
                 $table->enum('pensum', ['ANTIGUO', 'NUEVO'])->default('NUEVO');
                 $table->bigInteger('usuario_idUsuario')->unsigned();
                 $table->foreign('usuario_idUsuario')->references('id')->on('usuarios');
@@ -285,15 +285,15 @@ class CreacionTablasAcademico extends Migration
 
             Schema::create('tri_notas', function (Blueprint $table) {
                 $table->bigIncrements('id');
-                $table->decimal('asistencia', 3, 2);
-                $table->decimal('control_lectura', 3, 2);
-                $table->decimal('investigacion_productiva', 3, 2);
-                $table->decimal('participacion_constructiva', 3, 2);
-                $table->decimal('taller_laboratorios', 3, 2);
-                $table->decimal('evaluacion', 3, 2);
-                $table->decimal('puntaje_total', 3, 2);
-                $table->decimal('segundo_turno', 3, 2);
-                $table->string('observacion');
+                $table->decimal('asistencia', 3, 2)->nullable();
+                $table->decimal('control_lectura', 3, 2)->nullable();
+                $table->decimal('investigacion_productiva', 3, 2)->nullable();
+                $table->decimal('participacion_constructiva', 3, 2)->nullable();
+                $table->decimal('taller_laboratorios', 3, 2)->nullable();
+                $table->decimal('evaluacion', 3, 2)->nullable();
+                $table->decimal('puntaje_total', 3, 2)->nullable();
+                $table->decimal('segundo_turno', 3, 2)->nullable();
+                $table->string('observacion')->nullable();
                 $table->bigInteger('estudiante_idEstudiante')->unsigned();
                 $table->bigInteger('materia_idMateria')->unsigned();
                 $table->bigInteger('periodo_idPeriodo')->unsigned();
@@ -306,14 +306,14 @@ class CreacionTablasAcademico extends Migration
 
             Schema::create('bi_notas', function (Blueprint $table) {
                 $table->bigIncrements('id');
-                $table->decimal('asistencia', 3, 2);
-                $table->decimal('investigacion_productiva', 3, 2);
-                $table->decimal('participacion_constructiva', 3, 2);
-                $table->decimal('taller_laboratorios', 3, 2);
-                $table->decimal('evaluacion', 3, 2);
-                $table->decimal('puntaje_total', 3, 2);
-                $table->decimal('segundo_turno', 3, 2);
-                $table->string('observacion');
+                $table->decimal('asistencia', 3, 2)->nullable();
+                $table->decimal('investigacion_productiva', 3, 2)->nullable();
+                $table->decimal('participacion_constructiva', 3, 2)->nullable();
+                $table->decimal('taller_laboratorios', 3, 2)->nullable();
+                $table->decimal('evaluacion', 3, 2)->nullable();
+                $table->decimal('puntaje_total', 3, 2)->nullable();
+                $table->decimal('segundo_turno', 3, 2)->nullable();
+                $table->string('observacion')->nullable();
                 $table->bigInteger('estudiante_idEstudiante')->unsigned();
                 $table->bigInteger('materia_idMateria')->unsigned();
                 $table->bigInteger('periodo_idPeriodo')->unsigned();

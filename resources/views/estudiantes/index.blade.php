@@ -1,23 +1,23 @@
 <div class="box-header with-border">
-    <h3 class="box-title"><i class="fa fa-user"></i> Datos Docente</h3>
-    <a type="button" class="btn btn-success pull-right" href="./{{ $docentes->id }}/editar">
+    <h3 class="box-title"><i class="fa fa-user"></i> Datos Estudiante</h3>
+    <a type="button" class="btn btn-success pull-right" href="./{{ $estudiantes->id }}/editar">
         <i class="fa fa-edit"></i>
     </a>
-{{-- <a href="{{ route('docentes.editar') }}">Editar</a> --}}
+{{-- <a href="{{ route('estudiantes.editar') }}">Editar</a> --}}
 </div>
 <div class="box-body">
     <div class="table-responsive">
         <table class="table table-striped table-condensed table-bordered table-hover">
             <tbody>
                 <tr>
-                    <th width="150" scope="row">Numero de Item:</th>
-                    <td>{{ $docentes->item }}</td>
+                    <th width="150" scope="row">Numero de Matricula:</th>
+                    <td>{{ $estudiantes->matricula }}</td>
                 </tr>
                 <tr>
                     <th width="150" scope="row">Cedula de Identidad:</th>
-                    <td>{{ $docentes->ci }} 
+                    <td>{{ $estudiantes->ci }} 
                         @foreach ($departamentos as $departamento)
-                            @if ($docentes->expedido==$departamento->id)
+                            @if ($estudiantes->expedido==$departamento->id)
                                <strong> {{ $departamento->abreviatura }} </strong>
                             @endif
                         @endforeach
@@ -25,24 +25,24 @@
                 </tr>
                 <tr>
                     <th width="150" scope="row">Apellido Paterno:</th>
-                    <td>{{ $docentes->aPaterno }}</td>
+                    <td>{{ $estudiantes->aPaterno }}</td>
                 </tr>
                 <tr>
                     <th width="150" scope="row">Apellido Materno:</th>
-                    <td>{{ $docentes->aMaterno }}</td>
+                    <td>{{ $estudiantes->aMaterno }}</td>
                 </tr>
                 <tr>
                     <th width="150" scope="row">Nombres:</th>
-                    <td>{{ $docentes->nombre }}</td>
+                    <td>{{ $estudiantes->nombre }}</td>
                 </tr>
                 <tr>
                     <th width="150" scope="row">Fecha de Nacimiento:</th>
-                    <td>{{ $docentes->fechaNacimiento }}</td>
+                    <td>{{ $estudiantes->fechaNacimiento }}</td>
                 </tr>
                 <tr>
                     <th width="150" scope="row">Género:</th>
                     <td>
-                        @if($docentes->genero=='M')
+                        @if($estudiantes->genero=='M')
                             MASCULINO
                         @else
                             FEMENINO
@@ -52,10 +52,10 @@
                 <tr>
                     <th width="150" scope="row">Estado Civil:</th>
                     <td>
-                        @if($docentes->estadoCivil=='S')
+                        @if($estudiantes->estadoCivil=='S')
                             SOLTERO
                         @else
-                            @if ($docentes->estadoCivil=='C')
+                            @if ($estudiantes->estadoCivil=='C')
                             CASADO    
                             @else
                                 VIUDO
@@ -64,24 +64,30 @@
                     </td>
                 </tr>
                 <tr>
-                    <th width="150" scope="row">Fecha de Ingreso:</th>
-                    <td>{{ $docentes->fechaIngreso }}</td>
-                </tr>
-                <tr>
                     <th width="150" scope="row">Correo electrónico:</th>
-                    <td>{{ $docentes->correo }}</td>
+                    <td>{{ $estudiantes->correo }}</td>
                 </tr>
                 <tr>
                     <th width="150" scope="row">Dirección:</th>
-                    <td>{{ $docentes->direccion }}</td>
+                    <td>{{ $estudiantes->direccion }}</td>
                 </tr>
                 <tr>
                     <th width="150" scope="row">Telefono:</th>
-                    <td>{{ $docentes->telefono }}</td>
+                    <td>{{ $estudiantes->telefono }}</td>
                 </tr>
                 <tr>
                     <th width="150" scope="row">Celular:</th>
-                    <td>{{ $docentes->celular }}</td>
+                    <td>{{ $estudiantes->celular }}</td>
+                </tr>
+                <tr>
+                    <th width="150" scope="row">Pensum:</th>
+                    <td>
+                        @if($estudiantes->pensum=='ANTIGUO')
+                            ANTIGUO
+                        @else
+                            NUEVO    
+                        @endif
+                    </td>
                 </tr>
                 <tr>
                     <th width="150" scope="row">Edad:</th>

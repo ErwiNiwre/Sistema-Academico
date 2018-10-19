@@ -1,7 +1,7 @@
 @extends('layouts.incos_inicio')
 
 @section('titulo')
-    Estudiante
+    ESTUDIANTE: {{ $estudiantes->nombre." ".$estudiantes->aPaterno." ".$estudiantes->aMaterno }}
 @endsection
 @section('content')
 
@@ -9,10 +9,10 @@
     <div class="row">
         <div class="col-md-6">
             <div class="box box-primary">
-                @include('usuarios.registro')
+                @include('usuarios.index')
             </div>
             <div class="box box-danger">
-                    @include('estudiantes.registro')
+                    @include('estudiantes.index')
             </div>
             <div class="box box-info">
                 <div class="box-header with-border">
@@ -60,7 +60,4 @@
         </div>
     </div>
 </section>
-
-
-
 @endsection

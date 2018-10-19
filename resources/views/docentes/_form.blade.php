@@ -80,10 +80,46 @@
                 <select class="form-control" name="genero">
                     <option value="M">MASCULINO</option>
                     <option value="F">FEMENINO</option>                    
-                </select> 
-                    
+                </select>
                 @endif
-            
+        </div>
+    </div>
+    <label class="control-label">Estado Civil:</label>
+    <div class="form-group">
+        <label class="col-sm-2 control-label"></label>
+        <div class="col-sm-10">
+                @if (isset($docentes))
+                    <select class="form-control" name="estadoCivil">
+                        @if ($docentes->estadoCivil=='S')
+                            <option value="S" selected>SOLTERO</option>
+                            <option value="C">CASADO</option>
+                            <option value="V">VIUDO</option>                    
+                        @else
+                            @if ($docentes->estadoCivil=='C')
+                                <option value="S">SOLTERO</option>
+                                <option value="C" selected>CASADO</option>
+                                <option value="V">VIUDO</option>
+                            @else
+                                <option value="S">SOLTERO</option>
+                                <option value="C">CASADO</option>
+                                <option value="V" selected>VIUDO</option>
+                            @endif 
+                        @endif
+                    </select> 
+                @else
+                <select class="form-control" name="estadoCivil">
+                    <option value="S">SOLTERO</option>
+                    <option value="C">CASADO</option>
+                    <option value="V">VIUDO</option>                     
+                </select>
+                @endif
+        </div>
+    </div>
+    <label class="control-label">Fecha de Ingreso:</label>
+    <div class="form-group">
+        <label class="col-sm-2 control-label"></label>
+        <div class="col-sm-10">
+            <input type="date" value="{{ isset($docentes) ? $docentes->fechaIngreso : '' }}" class="form-control" id="fechaIngreso" name="fechaIngreso">
         </div>
     </div>
     <label class="control-label">Correo Electronico:</label>

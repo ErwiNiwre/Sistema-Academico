@@ -1,7 +1,7 @@
 @extends('layouts.incos_inicio')
 
 @section('titulo')
-    Lista Estudiante - Carrera
+    Lista Estudiantes - Carrera
 @endsection
 @section('content')
 
@@ -17,10 +17,10 @@
           <div class="form-group" id="example1_length">
             {{-- {{ Form::select('carrera', $carrera, null, ['class' => 'form-control select2','placeholder' => 'Select a client...']) }} --}}
             <label>Carreras: 
-              {{--  {{ $carrera }}  --}}
+              {{-- {{ $docentes }} --}}
               <select  class="form-control">
-                @foreach ($carrera as $carreras)
-                  <option value="{{ $carreras['id']}}">{{ $carreras['carrera']}}</option>    
+                @foreach ($carreras as $carrera)
+                  <option value="{{ $carrera['id']}}">{{ $carrera['carrera']}}</option>    
                 @endforeach
               </select> 
             </label>
@@ -32,44 +32,70 @@
                     <input type="search" class="form-control input-sm" placeholder="" aria-controls="example1">
                 </label>
             </div>
+            
             <div class="pull-right">
-                <button type="button" class="btn btn-default btn-sm">
-                    <i class="fa fa-plus"></i></button>
-                    <h3 data-toggle="tooltip" data-placement="top" class="pull-left">
-                        <a href="{{ url('Admin/registro') }}" style="color: red">Información Personal</a>
-                    </h3>
+              {{-- <a class="btn btn-social-icon"> --}}
+              {{-- <a class="btn btn-default btn-sm" href="{{ url('Docente/registro') }}"> --}}
+              <a class="btn btn-social-icon" href="{{ url('Estudiantes/registro') }}">
+                <i class="fa fa-plus-square-o"></i>
+              </a>
             </div>
         </div>
        
       </div>
       <div class="row">
         <div class="col-sm-12">
-          <table id="example1" class="table table-bordered table-striped dataTable" role="grid" aria-describedby="example1_info">
+          <table class="table table-striped table-bordered table-hover display" id="datatables-affiliate-contributions" cellspacing="0" width="100%" style="font-size: 10px">
+          {{-- <table id="example1" class="table table-bordered table-striped dataTable table-responsive" role="grid" aria-describedby="example1_info"> --}}
             <thead>
               <tr role="row">
-                <th class="sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending" style="width: 182px;">Nombre</th>
-                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending" style="width: 225px;">Paterno</th>
-                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending" style="width: 199px;">Materno</th>
-                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending" style="width: 156px;">Cedula Identidad</th>
-                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending" style="width: 113px;">Observaciones</th>
+                <th class="sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending" style="width: 200px;">Nombre</th>
+                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending" style="width: 150px;">Paterno</th>
+                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending" style="width: 150px;">Materno</th>
+                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending" style="width: 150px;">Cedula Identidad</th>
+                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending" style="width: 150px;">Observaciones</th>
               </tr>
             </thead>
             <tbody>
-              <tr role="row" class="odd">
-                <td class="sorting_1">Gecko</td>
-                <td>Firefox 1.0</td>
-                <td>Win 98+ / OSX.2+</td>
-                <td>1.7</td>
-                <td>
-                  <a class="btn btn-social-icon">
-                    <i class="fa fa-edit"></i>
-                  </a>
-                  <select name="example1_length" aria-controls="example1" class="form-control input-sm">
-                    <option>Activo</option>
-                    <option>Desactivo</option>
-                  </select>
-                </td>
-              </tr>
+              @if (isset($estudiantes))
+                @foreach($estudiantes as $estudiante)
+                <tr role="row" class="odd">
+                  <td>{{ $estudiante->nombre }}</td>
+                  <td>{{ $estudiante->aPaterno }}</td>
+                  <td>{{ $estudiante->aMaterno }}</td>
+                  <td>{{ $estudiante->ci }}</td>    
+                  <td>
+                    {{-- <a class="btn btn-social-icon" href="Docentes/{{ $docente['id'] }}/editar"> --}}
+                    <a class="btn btn-social-icon" href="Estudiantes/{{ $estudiante->id }}">
+                      {{-- <i class="fa fa-edit"></i> --}}
+                      <i class="fa fa-file-text"></i>
+                    </a>
+                    <select name="example1_length" aria-controls="example1" class="form-control input-sm">
+                      <option>Activo</option>
+                      <option>Desactivo</option>
+                    </select>
+                  </td>
+                </tr>
+                @endforeach 
+              @else
+                <tr role="row" class="odd">
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>    
+                  <td>
+                    {{-- <a class="btn btn-social-icon" href="Docentes/{{ $docente['id'] }}/editar"> --}}
+                    <a class="btn btn-social-icon" href="Docentes/{{ $estudiante->id }}">
+                      {{-- <i class="fa fa-edit"></i> --}}
+                      <i class="fa fa-file-text"></i>
+                    </a>
+                    <select name="example1_length" aria-controls="example1" class="form-control input-sm">
+                      <option>Activo</option>
+                      <option>Desactivo</option>
+                    </select>
+                  </td>
+                </tr>
+              @endif
             </tbody>
             <tfoot>
               <tr>
@@ -124,6 +150,5 @@
   </div>
   <!-- /.box-body -->
 </div>
-
 
 @endsection

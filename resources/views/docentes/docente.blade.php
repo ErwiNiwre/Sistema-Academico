@@ -57,7 +57,8 @@
               </tr>
             </thead>
             <tbody>
-              @foreach($docentes as $docente)
+              @if (isset($docentes))
+                @foreach($docentes as $docente)
                 <tr role="row" class="odd">
                   <td>{{ $docente->nombre }}</td>
                   <td>{{ $docente->aPaterno }}</td>
@@ -75,7 +76,26 @@
                     </select>
                   </td>
                 </tr>
-              @endforeach
+                @endforeach 
+              @else
+                <tr role="row" class="odd">
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>    
+                  <td>
+                    {{-- <a class="btn btn-social-icon" href="Docentes/{{ $docente['id'] }}/editar"> --}}
+                    <a class="btn btn-social-icon" href="Docentes/{{ $docente->id }}">
+                      {{-- <i class="fa fa-edit"></i> --}}
+                      <i class="fa fa-file-text"></i>
+                    </a>
+                    <select name="example1_length" aria-controls="example1" class="form-control input-sm">
+                      <option>Activo</option>
+                      <option>Desactivo</option>
+                    </select>
+                  </td>
+                </tr>
+              @endif
             </tbody>
             <tfoot>
               <tr>
