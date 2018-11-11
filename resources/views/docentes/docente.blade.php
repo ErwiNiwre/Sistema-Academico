@@ -36,7 +36,7 @@
             <div class="pull-right">
               {{-- <a class="btn btn-social-icon"> --}}
               {{-- <a class="btn btn-default btn-sm" href="{{ url('Docente/registro') }}"> --}}
-              <a class="btn btn-social-icon" href="{{ url('Docentes/registro') }}">
+              <a class="btn btn-social-icon" href="{{ route('docentes.create') }}">
                 <i class="fa fa-plus-square-o"></i>
               </a>
             </div>
@@ -66,7 +66,7 @@
                   <td>{{ $docente->ci }}</td>    
                   <td>
                     {{-- <a class="btn btn-social-icon" href="Docentes/{{ $docente['id'] }}/editar"> --}}
-                    <a class="btn btn-social-icon" href="Docentes/{{ $docente->id }}">
+                    <a class="btn btn-social-icon" href="{{ route('docentes.show', $docente) }}">
                       {{-- <i class="fa fa-edit"></i> --}}
                       <i class="fa fa-file-text"></i>
                     </a>

@@ -20,7 +20,7 @@
               {{-- {{ $docentes }} --}}
               <select  class="form-control">
                 @foreach ($carreras as $carrera)
-                  <option value="{{ $carrera['id']}}">{{ $carrera['carrera']}}</option>    
+                  <option value="{{ $carrera->id }}">{{ $carrera->carrera }}</option>    
                 @endforeach
               </select> 
             </label>
@@ -36,7 +36,7 @@
             <div class="pull-right">
               {{-- <a class="btn btn-social-icon"> --}}
               {{-- <a class="btn btn-default btn-sm" href="{{ url('Docente/registro') }}"> --}}
-              <a class="btn btn-social-icon" href="{{ url('Estudiantes/registro') }}">
+              <a class="btn btn-social-icon" href="{{ route('estudiantes.create') }}">
                 <i class="fa fa-plus-square-o"></i>
               </a>
             </div>
@@ -66,7 +66,7 @@
                   <td>{{ $estudiante->ci }}</td>    
                   <td>
                     {{-- <a class="btn btn-social-icon" href="Docentes/{{ $docente['id'] }}/editar"> --}}
-                    <a class="btn btn-social-icon" href="Estudiantes/{{ $estudiante->id }}">
+                    <a class="btn btn-social-icon" href="{{ route('estudiantes.show', $estudiante) }}">
                       {{-- <i class="fa fa-edit"></i> --}}
                       <i class="fa fa-file-text"></i>
                     </a>
@@ -85,7 +85,7 @@
                   <td></td>    
                   <td>
                     {{-- <a class="btn btn-social-icon" href="Docentes/{{ $docente['id'] }}/editar"> --}}
-                    <a class="btn btn-social-icon" href="Docentes/{{ $estudiante->id }}">
+                    <a class="btn btn-social-icon" href="#">
                       {{-- <i class="fa fa-edit"></i> --}}
                       <i class="fa fa-file-text"></i>
                     </a>

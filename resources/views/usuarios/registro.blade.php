@@ -1,7 +1,7 @@
 <div class="box-header with-border">
     <h3 class="box-title">Usuario</h3>
 </div>
-<form class="form-horizontal" action="{{ asset('registraru') }}" method="POST">
+<form class="form-horizontal" action="{{ route('usuarios.store') }}" method="POST">
     {{ csrf_field() }}
     @include('usuarios._form')
     <div class="box-footer">

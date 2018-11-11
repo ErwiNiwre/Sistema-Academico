@@ -1,4 +1,29 @@
 <div class="box-body">
+            {{-- {{ Form::select('carrera', $carrera, null, ['class' => 'form-control select2','placeholder' => 'Select a client...']) }} --}}
+        {{--  <label class="control-label">Carrera:</label>
+        <div class="form-group">
+            <label class="col-sm-2 control-label"></label>
+            <div class="col-sm-10">
+               
+                <select name="carrera_id" aria-controls="example1" class="form-control input-sm">
+                  @foreach ($carreras as $carrera)
+                    <option value="{{ $carrera->id }}">{{ $carrera->carrera }}</option>    
+                  @endforeach
+                </select>
+            </div>
+        </div>
+        <label class="control-label">Turno:</label>
+        <div class="form-group">
+            <label class="col-sm-2 control-label"></label>
+            <div class="col-sm-10">
+            
+                <select  class="form-control">
+                  @foreach ($turnos as $turno)
+                    <option value="{{ $turno->id }}">{{ $turno->turno }}</option>    
+                  @endforeach
+                </select>
+            </div>
+        </div>  --}}
         <label class="control-label">Matricula:</label>
         <div class="form-group">
             <label class="col-sm-2 control-label"></label>
@@ -15,7 +40,7 @@
             <div class="col-sm-3">
                 {{--  {{ $departamento }}  --}}
                 @if (isset($estudiantes))
-                    <select name="abreviatura" aria-controls="example1" class="form-control input-sm">
+                    <select name="expedido" id="expedido" aria-controls="example1" class="form-control input-sm">
                         @foreach ($departamentos as $departamento)
                             @if ($estudiantes->expedido==$departamento->id)
                             <option value="{{ $departamento->id }}" selected>{{ $departamento->abreviatura }}</option> 
@@ -25,7 +50,7 @@
                         @endforeach
                     </select> 
                 @else
-                    <select name="abreviatura" aria-controls="example1" class="form-control input-sm">
+                    <select name="expedido" id="expedido" aria-controls="example1" class="form-control input-sm">
                         @foreach ($departamentos as $departamento)
                             <option value="{{ $departamento->id }}">{{ $departamento->abreviatura }}</option> 
                         @endforeach

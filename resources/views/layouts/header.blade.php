@@ -3,9 +3,9 @@
     <!-- Logo -->
     <a href="index2.html" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini"><b>INCOS</b></span>
+      {{--  <span class="logo-mini"><b>INCOS</b></span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>INCOS</b> - EL ALTO</span>
+      <span class="logo-lg"><b>INCOS</b> - EL ALTO</span>  --}}
     </a>
 
     <!-- Header Navbar -->
@@ -15,8 +15,19 @@
         <span class="sr-only">Toggle navigationsdsdaaaaaaaaa</span>
       </a>
 
+      <div class="pull-right">
+        <a href="{{ route('login') }}" class="btn btn-default btn-sm">
+          <i class="fa fa-sign-in"></i>
+          <span class="label label-success">Iniciar Sesión</span>
+        </a>
+        <a href="#" class="btn btn-default btn-sm">
+          <i class="fa fa-sign-out"></i>
+          <span class="label label-success">Registrarse</span>
+        </a>
+      </div>
+
       <!-- Navbar Right Menu -->
-      <div class="navbar-custom-menu">
+      {{--  <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
           <!-- User Account Menu -->
           <li class="dropdown user user-menu">
@@ -50,6 +61,6 @@
             </ul>
           </li>
         </ul>
-      </div>
+      </div>  --}}
     </nav>
   </header>

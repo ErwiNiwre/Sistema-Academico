@@ -76,9 +76,9 @@
                 </span>
             </a>
             <ul class="treeview-menu">
-              <li><a href="{{ url('Admins') }}">ADMINISTRATIVOS</a></li>
-              <li><a href="{{ url('Docentes') }}">DOCENTES</a></li>
-              <li><a href="{{ url('Estudiantes') }}">ESTUDIANTES</a></li>
+              {{--  <li><a href="{{ route('administrativos.index') }}">ADMINISTRATIVOS</a></li>  --}}
+              <li><a href="{{ route('docentes.index') }}">DOCENTES</a></li>
+              <li><a href="{{ route('estudiantes.index') }}">ESTUDIANTES</a></li>
             </ul>
           </li>
           <li class="treeview">
@@ -98,6 +98,17 @@
           <li><a href="#"><i class="fa fa-info-circle"></i> <span>Nosotros</span></a></li>
           <li><a href="#"><i class="fa fa-envelope"></i> <span>Contacto</span></a></li>
         </ul>
+        {{-- Estudiante --}}
+        <ul class="sidebar-menu" data-widget="tree">
+          <li class="header">MENU</li>
+          <li><a href="#"><i class="fa fa-newspaper-o"></i> <span>Inicio</span></a></li>
+          <li><a href="#"><i class="fa fa-info-circle"></i> <span>Materias</span></a></li>
+          <li><a href="#"><i class="fa fa-envelope"></i> <span>Horarios</span></a></li>
+          <li><a href="#"><i class="fa fa-envelope"></i> <span>Notas</span></a></li>
+          <li><a href="#"><i class="fa fa-envelope"></i> <span>Record Academico</span></a></li>
+          <li><a href="#"><i class="fa fa-envelope"></i> <span>Boletin</span></a></li>
+          <li><a href="{{ route('estudiantes.pensum', 1) }}"><i class="fa fa-envelope"></i> <span>Pensum</span></a></li>
+        </ul> 
       <!-- /.sidebar-menu -->
     </section>
     <!-- /.sidebar -->

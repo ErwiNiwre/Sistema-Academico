@@ -78,27 +78,27 @@ class CreacionTablasAcademico extends Migration
 
             Schema::create('cursos', function (Blueprint $table) {
                 $table->bigIncrements('id');
-                $table->bigInteger('aula_idAula')->unsigned();
-                $table->bigInteger('paralelo_idParalelo')->unsigned();
-                $table->bigInteger('nivel_idNivel')->unsigned();
-                $table->bigInteger('turno_idTurno')->unsigned();
-                $table->foreign('aula_idAula')->references('id')->on('aulas');
-                $table->foreign('paralelo_idParalelo')->references('id')->on('paralelos');
-                $table->foreign('nivel_idNivel')->references('id')->on('niveles');
-                $table->foreign('turno_idTurno')->references('id')->on('turnos');
+                $table->bigInteger('aula_id')->unsigned();
+                $table->bigInteger('paralelo_id')->unsigned();
+                $table->bigInteger('nivel_id')->unsigned();
+                $table->bigInteger('turno_id')->unsigned();
+                $table->foreign('aula_id')->references('id')->on('aulas');
+                $table->foreign('paralelo_id')->references('id')->on('paralelos');
+                $table->foreign('nivel_id')->references('id')->on('niveles');
+                $table->foreign('turno_id')->references('id')->on('turnos');
                 $table->timestamps();
                 $table->softDeletes();
             });
 
             Schema::create('horarios', function (Blueprint $table) {
                 $table->bigIncrements('id');
-                $table->bigInteger('aula_idAula')->unsigned();
-                $table->bigInteger('hora_idHora')->unsigned();
-                $table->bigInteger('curso_idCurso')->unsigned();
+                $table->bigInteger('aula_id')->unsigned();
+                $table->bigInteger('hora_id')->unsigned();
+                $table->bigInteger('curso_id')->unsigned();
                 $table->boolean('estado')->default(false);
-                $table->foreign('aula_idAula')->references('id')->on('aulas');
-                $table->foreign('hora_idHora')->references('id')->on('horas');
-                $table->foreign('curso_idCurso')->references('id')->on('cursos');
+                $table->foreign('aula_id')->references('id')->on('aulas');
+                $table->foreign('hora_id')->references('id')->on('horas');
+                $table->foreign('curso_id')->references('id')->on('cursos');
                 $table->timestamps();
                 $table->softDeletes();
             });
@@ -108,21 +108,21 @@ class CreacionTablasAcademico extends Migration
                 $table->string('materia');
                 $table->string('sigla');
                 $table->string('tipo');
-                $table->bigInteger('carrera_idCarrera')->unsigned();
-                $table->bigInteger('nivel_idNivel')->unsigned();
+                $table->bigInteger('carrera_id')->unsigned();
+                $table->bigInteger('nivel_id')->unsigned();
                 $table->boolean('estado')->default(false);
-                $table->foreign('carrera_idCarrera')->references('id')->on('carreras');
-                $table->foreign('nivel_idNivel')->references('id')->on('niveles');
+                $table->foreign('carrera_id')->references('id')->on('carreras');
+                $table->foreign('nivel_id')->references('id')->on('niveles');
                 $table->timestamps();
                 $table->softDeletes();
             });
 
-            Schema::create('materia_aula', function (Blueprint $table) {
+            Schema::create('aula_materia', function (Blueprint $table) {
                 $table->bigIncrements('id');
-                $table->bigInteger('materia_idMateria')->unsigned();
-                $table->bigInteger('aula_idAula')->unsigned();
-                $table->foreign('materia_idMateria')->references('id')->on('materias');
-                $table->foreign('aula_idAula')->references('id')->on('aulas');
+                $table->bigInteger('aula_id')->unsigned();
+                $table->bigInteger('materia_id')->unsigned();
+                $table->foreign('aula_id')->references('id')->on('aulas');
+                $table->foreign('materia_id')->references('id')->on('materias');
                 $table->timestamps();
                 $table->softDeletes();
             });
@@ -131,8 +131,8 @@ class CreacionTablasAcademico extends Migration
                 $table->bigIncrements('id');
                 $table->string('usuario')->unique();
                 $table->string('password');
-                $table->bigInteger('rol_idRol')->unsigned();
-                $table->foreign('rol_idRol')->references('id')->on('roles');
+                $table->bigInteger('rol_id')->unsigned();
+                $table->foreign('rol_id')->references('id')->on('roles');
                 $table->rememberToken();
                 $table->timestamps();
                 $table->softDeletes();
@@ -154,30 +154,30 @@ class CreacionTablasAcademico extends Migration
                 $table->string('direccion')->nullable();
                 $table->string('telefono')->nullable();
                 $table->string('celular')->nullable();
-                $table->bigInteger('usuario_idUsuario')->unsigned();
-                $table->foreign('usuario_idUsuario')->references('id')->on('usuarios');
+                $table->bigInteger('usuario_id')->unsigned();
+                $table->foreign('usuario_id')->references('id')->on('usuarios');
                 $table->foreign('expedido')->references('id')->on('departamentos');
                 $table->rememberToken();
                 $table->timestamps();
                 $table->softDeletes();
             });
 
-            Schema::create('docente_curso', function (Blueprint $table) {
+            Schema::create('curso_docente', function (Blueprint $table) {
                 $table->bigIncrements('id');
-                $table->bigInteger('docente_idDocente')->unsigned();
-                $table->bigInteger('curso_idCurso')->unsigned();
-                $table->foreign('docente_idDocente')->references('id')->on('docentes');
-                $table->foreign('curso_idCurso')->references('id')->on('cursos');
+                $table->bigInteger('curso_id')->unsigned();
+                $table->bigInteger('docente_id')->unsigned();
+                $table->foreign('curso_id')->references('id')->on('cursos');
+                $table->foreign('docente_id')->references('id')->on('docentes');
                 $table->timestamps();
                 $table->softDeletes();
             });
 
-            Schema::create('docente_carrera', function (Blueprint $table) {
+            Schema::create('carrera_docente', function (Blueprint $table) {
                 $table->bigIncrements('id');
-                $table->bigInteger('docente_idDocente')->unsigned();
-                $table->bigInteger('carrera_idCarrera')->unsigned();
-                $table->foreign('docente_idDocente')->references('id')->on('docentes');
-                $table->foreign('carrera_idCarrera')->references('id')->on('carreras');
+                $table->bigInteger('carrera_id')->unsigned();
+                $table->bigInteger('docente_id')->unsigned();
+                $table->foreign('carrera_id')->references('id')->on('carreras');
+                $table->foreign('docente_id')->references('id')->on('docentes');
                 $table->timestamps();
                 $table->softDeletes();
             });
@@ -198,10 +198,10 @@ class CreacionTablasAcademico extends Migration
                 $table->string('direccion')->nullable();
                 $table->string('telefono')->nullable();
                 $table->string('celular')->nullable();
-                $table->bigInteger('usuario_idUsuario')->unsigned();
-                $table->bigInteger('carrera_idCarrera')->unsigned();
-                $table->foreign('usuario_idUsuario')->references('id')->on('usuarios');
-                $table->foreign('carrera_idCarrera')->references('id')->on('carreras');
+                $table->bigInteger('usuario_id')->unsigned();
+                $table->bigInteger('carrera_id')->unsigned();
+                $table->foreign('usuario_id')->references('id')->on('usuarios');
+                $table->foreign('carrera_id')->references('id')->on('carreras');
                 $table->foreign('expedido')->references('id')->on('departamentos');
                 $table->rememberToken();
                 $table->timestamps();
@@ -224,20 +224,20 @@ class CreacionTablasAcademico extends Migration
                 $table->string('telefono')->nullable();
                 $table->string('celular')->nullable();
                 $table->enum('pensum', ['ANTIGUO', 'NUEVO'])->default('NUEVO');
-                $table->bigInteger('usuario_idUsuario')->unsigned();
-                $table->foreign('usuario_idUsuario')->references('id')->on('usuarios');
+                $table->bigInteger('usuario_id')->unsigned();
+                $table->foreign('usuario_id')->references('id')->on('usuarios');
                 $table->foreign('expedido')->references('id')->on('departamentos');
                 $table->rememberToken();
                 $table->timestamps();
                 $table->softDeletes();
             });
 
-            Schema::create('estudiante_carrera', function (Blueprint $table) {
+            Schema::create('carrera_estudiante', function (Blueprint $table) {
                 $table->bigIncrements('id');
-                $table->bigInteger('estudiante_idEstudiante')->unsigned();
-                $table->bigInteger('carrera_idCarrera')->unsigned();
-                $table->foreign('estudiante_idEstudiante')->references('id')->on('estudiantes');
-                $table->foreign('carrera_idCarrera')->references('id')->on('carreras');
+                $table->bigInteger('carrera_id')->unsigned();
+                $table->bigInteger('estudiante_id')->unsigned();
+                $table->foreign('carrera_id')->references('id')->on('carreras');
+                $table->foreign('estudiante_id')->references('id')->on('estudiantes');
                 $table->timestamps();
                 $table->softDeletes();
             });
@@ -253,32 +253,32 @@ class CreacionTablasAcademico extends Migration
 
             Schema::create('curso_estudiante', function (Blueprint $table) {
                 $table->bigIncrements('id');
-                $table->bigInteger('curso_idCurso')->unsigned();
-                $table->bigInteger('estudiante_idEstudiante')->unsigned();
+                $table->bigInteger('curso_id')->unsigned();
+                $table->bigInteger('estudiante_id')->unsigned();
                 $table->date('fecha_ins');
                 $table->boolean('estado')->default(false);
-                $table->foreign('curso_idCurso')->references('id')->on('cursos');
-                $table->foreign('estudiante_idEstudiante')->references('id')->on('estudiantes');
+                $table->foreign('curso_id')->references('id')->on('cursos');
+                $table->foreign('estudiante_id')->references('id')->on('estudiantes');
                 $table->timestamps();
                 $table->softDeletes();
             });
 
             Schema::create('administrativo_turno', function (Blueprint $table) {
                 $table->bigIncrements('id');
-                $table->bigInteger('administrativo_idAdministrativo')->unsigned();
-                $table->bigInteger('turno_idTurno')->unsigned();
-                $table->foreign('administrativo_idAdministrativo')->references('id')->on('administrativos');
-                $table->foreign('turno_idTurno')->references('id')->on('turnos');
+                $table->bigInteger('administrativo_id')->unsigned();
+                $table->bigInteger('turno_id')->unsigned();
+                $table->foreign('administrativo_id')->references('id')->on('administrativos');
+                $table->foreign('turno_id')->references('id')->on('turnos');
                 $table->timestamps();
                 $table->softDeletes();
             });
 
             Schema::create('docente_turno', function (Blueprint $table) {
                 $table->bigIncrements('id');
-                $table->bigInteger('docente_idDocente')->unsigned();
-                $table->bigInteger('turno_idTurno')->unsigned();
-                $table->foreign('docente_idDocente')->references('id')->on('docentes');
-                $table->foreign('turno_idTurno')->references('id')->on('turnos');
+                $table->bigInteger('docente_id')->unsigned();
+                $table->bigInteger('turno_id')->unsigned();
+                $table->foreign('docente_id')->references('id')->on('docentes');
+                $table->foreign('turno_id')->references('id')->on('turnos');
                 $table->timestamps();
                 $table->softDeletes();
             });
@@ -294,12 +294,12 @@ class CreacionTablasAcademico extends Migration
                 $table->decimal('puntaje_total', 3, 2)->nullable();
                 $table->decimal('segundo_turno', 3, 2)->nullable();
                 $table->string('observacion')->nullable();
-                $table->bigInteger('estudiante_idEstudiante')->unsigned();
-                $table->bigInteger('materia_idMateria')->unsigned();
-                $table->bigInteger('periodo_idPeriodo')->unsigned();
-                $table->foreign('estudiante_idEstudiante')->references('id')->on('estudiantes');
-                $table->foreign('materia_idMateria')->references('id')->on('materias');
-                $table->foreign('periodo_idPeriodo')->references('id')->on('periodos');
+                $table->bigInteger('estudiante_id')->unsigned();
+                $table->bigInteger('materia_id')->unsigned();
+                $table->bigInteger('periodo_id')->unsigned();
+                $table->foreign('estudiante_id')->references('id')->on('estudiantes');
+                $table->foreign('materia_id')->references('id')->on('materias');
+                $table->foreign('periodo_id')->references('id')->on('periodos');
                 $table->timestamps();
                 $table->softDeletes();
             });
@@ -314,12 +314,12 @@ class CreacionTablasAcademico extends Migration
                 $table->decimal('puntaje_total', 3, 2)->nullable();
                 $table->decimal('segundo_turno', 3, 2)->nullable();
                 $table->string('observacion')->nullable();
-                $table->bigInteger('estudiante_idEstudiante')->unsigned();
-                $table->bigInteger('materia_idMateria')->unsigned();
-                $table->bigInteger('periodo_idPeriodo')->unsigned();
-                $table->foreign('estudiante_idEstudiante')->references('id')->on('estudiantes');
-                $table->foreign('materia_idMateria')->references('id')->on('materias');
-                $table->foreign('periodo_idPeriodo')->references('id')->on('periodos');
+                $table->bigInteger('estudiante_id')->unsigned();
+                $table->bigInteger('materia_id')->unsigned();
+                $table->bigInteger('periodo_id')->unsigned();
+                $table->foreign('estudiante_id')->references('id')->on('estudiantes');
+                $table->foreign('materia_id')->references('id')->on('materias');
+                $table->foreign('periodo_id')->references('id')->on('periodos');
                 $table->timestamps();
                 $table->softDeletes();
             });

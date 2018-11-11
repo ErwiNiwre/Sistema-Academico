@@ -22,6 +22,11 @@ class Usuario extends Model
         return $this->hasMany('App\Estudiante');
     }
 
+    public function postulantes()
+    {
+        return $this->hasMany('App\Postulante');
+    }
+
     public function roles()
     {
         return $this->belongsTo('App\Rol');

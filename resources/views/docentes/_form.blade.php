@@ -15,7 +15,7 @@
         <div class="col-sm-3">
             {{--  {{ $departamento }}  --}}
             @if (isset($docentes))
-                <select name="abreviatura" aria-controls="example1" class="form-control input-sm">
+                <select name="expedido" aria-controls="example1" class="form-control input-sm">
                     @foreach ($departamentos as $departamento)
                         @if ($docentes->expedido==$departamento->id)
                         <option value="{{ $departamento->id }}" selected>{{ $departamento->abreviatura }}</option> 
@@ -25,13 +25,34 @@
                     @endforeach
                 </select> 
             @else
-                <select name="abreviatura" aria-controls="example1" class="form-control input-sm">
+                <select name="expedido" aria-controls="example1" class="form-control input-sm">
                     @foreach ($departamentos as $departamento)
                         <option value="{{ $departamento->id }}">{{ $departamento->abreviatura }}</option> 
                     @endforeach
                 </select> 
             @endif
-            
+
+        </div>
+        <div class="col-sm-3">
+            {{--  {{ $departamento }}  --}}
+            {{--  @if (isset($docentes))  --}}
+                {{--  <select name="docente_id" aria-controls="example1" class="form-control input-sm">
+                    @foreach ($carreras as $carrera)  --}}
+                        {{--  @if ($docentes->expedido==$departamento->id)  --}}
+                        {{--  <option value="{{ $carrera->id }}" selected>{{ $carrera->carrera }}</option>   --}}
+                        {{--  @else  --}}
+                        {{--  <option value="{{ $departamento->id }}">{{ $departamento->abreviatura }}</option>   --}}
+                        {{--  @endif  --}}
+                    {{--  @endforeach  --}}
+                {{--  </select>   --}}
+            {{--  @else  --}}
+                {{--  <select name="carrera_id" aria-controls="example1" class="form-control input-sm">  --}}
+                    {{--  @foreach ($carreras as $carrera)  --}}
+                        {{--  <option value="{{ $carrera->id }}" selected>{{ $carrera->carrera }}</option>    --}}
+                    {{--  @endforeach  --}}
+                {{--  </select>   --}}
+            {{--  @endif  --}}
+
         </div>
     </div>
     <label class="control-label">Paterno:</label>

@@ -46,7 +46,7 @@ class UsuariosController extends Controller
         $usuario=new Usuario;
     	$usuario->usuario=request()->usuario;
     	$usuario->password=bcrypt(request()->contrasena);
-        $usuario->rol_idRol=request()->rol;
+        $usuario->rol_id=request()->rol;
         $usuario->save();
         return back();
         // return view('docentes.docente_registro');
@@ -90,16 +90,16 @@ class UsuariosController extends Controller
      */
     public function update(Usuario $usuario)
     { 
-        if ($usuario->rol_idRol==5) {
-            $docentes = Docente::where('usuario_idUsuario', '=', $usuario->id)->first();
+        if ($usuario->rol_id==5) {
+            $docentes = Docente::where('usuario_id', '=', $usuario->id)->first();
         } else {
-            if ($usuario->rol_idRol==6) {
-                $estudiantes = Estudiante::where('usuario_idUsuario', '=', $usuario->id)->first();
+            if ($usuario->rol_id==6) {
+                $estudiantes = Estudiante::where('usuario_id', '=', $usuario->id)->first();
             } else {
-                if ($usuario->rol_idRol==7) {
+                if ($usuario->rol_id==7) {
                     // $docentes = Postulante::where('usuario_idUsuario', '=', $usuario->id)->first();
                 } else {
-                    $administrativos = Administrativo::where('usuario_idUsuario', '=', $usuario->id)->first();
+                    $administrativos = Administrativo::where('usuario_id', '=', $usuario->id)->first();
                 }
                 
             }
@@ -115,16 +115,16 @@ class UsuariosController extends Controller
             'usuarios' => $usuario,
             'roles' => $roles
         );
-        if ($usuario->rol_idRol==5) {
-            return redirect("/Docentes/$docentes->id");
+        if ($usuario->rol_id==5) {
+            return redirect("/docentes/$docentes->id");
         } else {
-            if ($usuario->rol_idRol==6) {
-                return redirect("/Estudiantes/$estudiantes->id");
+            if ($usuario->rol_id==6) {
+                return redirect("/estudiantes/$estudiantes->id");
             } else {
-                if ($usuario->rol_idRol==7) {
+                if ($usuario->rol_id==7) {
                     // return redirect("/Postulantes/$postulantes->id");
                 } else {
-                    return redirect("/Admin/$administrativos->id");
+                    return redirect("/admin/$administrativos->id");
                 }
                 
             }

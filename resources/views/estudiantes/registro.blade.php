@@ -2,7 +2,7 @@
     <h3 class="box-title">Datos</h3>
 </div>
 
-<form class="form-horizontal" action="{{ asset('registrarest') }}" method="POST">
+<form class="form-horizontal" action="{{ route('estudiantes.store') }}" method="POST">
     {{ csrf_field() }}
     @include('estudiantes._form')
     <div class="box-footer">

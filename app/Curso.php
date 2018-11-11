@@ -34,11 +34,18 @@ class Curso extends Model
 
     public function estudiantes()
     {
-        return $this->belongsToMany('App\Estudiante','curso_estudiante','curso_idCurso','estudiante_idEstudiante');
+        return $this->belongsToMany('App\Estudiante','curso_estudiante','curso_id','estudiante_id');
     }
 
     public function docentes()
     {
-        return $this->belongsToMany('App\Docente','docente_curso','curso_idCurso','docente_idDocente');
+        return $this->belongsToMany('App\Docente','curso_docente','curso_id','docente_id');
     }
+
+    public function materias()
+    {
+        return $this->belongsToMany('App\Materia','curso_docente','curso_id','materia_id');
+    }
+
+    
 }

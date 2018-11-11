@@ -28,30 +28,16 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <th>19:00 - 20:00</th>
-                                <th>10</th>
-                                <th>10</th>
-                                <th>20</th>
-                                <th>10</th>
-                                <th>20</th>
-                            </tr>
-                            <tr>
-                                <th>20:00 - 21:00</th>
-                                <th>10</th>
-                                <th>10</th>
-                                <th>20</th>
-                                <th>10</th>
-                                <th>20</th>
-                            </tr>
-                            <tr>
-                                <th>21:15 - 22:15</th>
-                                <th>10</th>
-                                <th>10</th>
-                                <th>20</th>
-                                <th>10</th>
-                                <th>20</th>
-                            </tr>
+                            {{--  @foreach($horas as $hora)  --}}
+                                <tr role="row" class="odd">
+                                    {{--  <td>{{ $hora->hora }}</td>  --}}
+                                    <td>a</td>
+                                    <td>a</td>
+                                    <td>a</td>
+                                    <td>a</td>
+                                    <td>a</td>    
+                                </tr>
+                             {{--  @endforeach   --}}
                         </tbody>
                     </table>
                 </div>

@@ -1,6 +1,6 @@
 <div class="box-header with-border">
     <h3 class="box-title"><i class="fa fa-user"></i> Datos Docente</h3>
-    <a type="button" class="btn btn-success pull-right" href="./{{ $docentes->id }}/editar">
+    <a type="button" class="btn btn-success pull-right" href="{{ route('docentes.edit', $docentes) }}">
         <i class="fa fa-edit"></i>
     </a>
 {{-- <a href="{{ route('docentes.editar') }}">Editar</a> --}}

@@ -3,10 +3,30 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+// use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Estudiante extends Model
 {
     //
+    // use SoftDeletes;
+
+    // protected $fillable = [
+    //     'matricula',
+    //     'ci',
+    //     'aPaterno',
+    //     'aMaterno',
+    //     'nombre',
+    //     'fechaNacimiento',
+    //     'genero',
+    //     'estadoCivil',
+    //     'correo',
+    //     'direccion',
+    //     'telefono',
+    //     'celular',
+    //     'pensum',
+    //     'usuario_id'
+    // ];
+
     public function usuarios()
     {
         return $this->belongsTo('App\Usuario');
@@ -29,11 +49,11 @@ class Estudiante extends Model
 
     public function cursos()
     {
-        return $this->belongsToMany('App\Curso','curso_estudiante','estudiante_idEstudiante','curso_idCurso');
+        return $this->belongsToMany('App\Curso','curso_estudiante','estudiante_id','curso_id');
     }
 
     public function carreras()
     {
-        return $this->belongsToMany('App\Carrera','estudiante_carrera','estudiante_idEstudiante','carrera_idCarrera');
+        return $this->belongsToMany('App\Carrera','carrera_estudiante','estudiante_id','carrera_id');
     }
 }

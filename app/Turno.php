@@ -14,12 +14,17 @@ class Turno extends Model
 
     public function docentes()
     {
-        return $this->belongsToMany('App\Docente','docente_turno','turno_idTurno','docente_idDocente');
+        return $this->belongsToMany('App\Docente','docente_turno','turno_id','docente_id');
     }
 
     public function administrativos()
     {
-        return $this->belongsToMany('App\Administrativo','administrativo_turno','turno_idTurno','administrativo_idAdministrativo');
+        return $this->belongsToMany('App\Administrativo','administrativo_turno','turno_id','administrativo_id');
+    }
+
+    public function postulantes()
+    {
+        return $this->hasMany('App\Postulante');
     }
 
 }

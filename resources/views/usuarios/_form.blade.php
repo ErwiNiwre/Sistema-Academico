@@ -21,7 +21,7 @@
             @if (isset($usuarios))
                 <select name="rol" id="rol" disabled aria-controls="example1" class="form-control input-sm">
                 @foreach ($roles as $rol)
-                    @if ($usuarios->rol_idRol==$rol->id && $usuarios->rol_idRol!=null)
+                    @if ($usuarios->rol_id==$rol->id && $usuarios->rol_id!=null)
                         <option value="{{ $rol->id }}" selected>{{ $rol->rol }}</option> 
                     {{-- @else
                         <option value="{{ $rol->id }}">{{ $rol->rol }}</option>  --}}

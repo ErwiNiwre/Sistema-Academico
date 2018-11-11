@@ -38,9 +38,11 @@ class DocentesController extends Controller
         //
         $roles = Rol::all();
         $departamentos = Departamento::all();
+        $carreras = Carrera::all();
         // return $carrera;
         $datos = array(
             'departamentos' => $departamentos,
+            'carreras' => $carreras,
             'roles' => $roles
         );
         return view('docentes.docente_registro')->with($datos);
@@ -59,7 +61,7 @@ class DocentesController extends Controller
         $docente = new Docente;
         $docente->item = request()->item;
         $docente->ci = request()->ci;
-        $docente->expedido = request()->abreviatura;
+        $docente->expedido = request()->expedido;
         $docente->aPaterno = request()->aPaterno;
         $docente->aMaterno = request()->aMaterno;
         $docente->nombre = request()->nombre;
@@ -73,11 +75,15 @@ class DocentesController extends Controller
         $docente->celular = request()->celular;
 
         $userid = Usuario::where('usuario', request()->ci)->first();
-        $docente->usuario_idUsuario = $userid->id;
+        // $carreid = Carrera::where('id', request()->carrera_idCarrera)->first();
+        $docente->usuario_id = $userid->id;
+
+        // $docente->carreras()->attach($carreid);
 
         $docente->save();
+        
         // return back();
-        return redirect('/Docentes');
+        return redirect('/docentes');
     }
 
     /**
@@ -88,14 +94,16 @@ class DocentesController extends Controller
      */
     public function show(Docente $docente)
     {
-        $usuarios = Usuario::where('id', '=', $docente->usuario_idUsuario)->first();
+        $usuarios = Usuario::where('id', '=', $docente->usuario_id)->first();
         $roles = Rol::all();
         $departamentos = Departamento::all();
+        $carreras = Carrera::all();
         $datos = array(
-            'docentes' => $docente,
+            'docentes' => $docente,/*  */
             'departamentos' => $departamentos,
             'usuarios' => $usuarios,
-            'roles' => $roles
+            'roles' => $roles,
+            'carreras' => $carreras
         );
         // return $usuarios;
         return view('docentes.docente_datos')->with($datos);
@@ -109,7 +117,7 @@ class DocentesController extends Controller
      */
     public function edit(Docente $docente)
     {
-        $userid = Usuario::where('id', '=', $docente->usuario_idUsuario)->get();
+        $userid = Usuario::where('id', '=', $docente->usuario_id)->get();
         $roles = Rol::all();
         $departamentos = Departamento::all();
         $datos = array(
@@ -132,11 +140,11 @@ class DocentesController extends Controller
     public function update(Docente $docente)
     {
         // $userid = Usuario::where('id', '=', $docente->usuario_idUsuario)->get();
-        $usuarios = Usuario::where('id', '=', $docente->usuario_idUsuario)->first();
-        
+        $usuarios = Usuario::where('id', '=', $docente->usuario_id)->first();
+
         $docente->item = request()->item;
         $docente->ci = request()->ci;
-        $docente->expedido = request()->abreviatura;
+        $docente->expedido = request()->expedido;
         $docente->aPaterno = request()->aPaterno;
         $docente->aMaterno = request()->aMaterno;
         $docente->nombre = request()->nombre;
@@ -149,7 +157,7 @@ class DocentesController extends Controller
         $docente->telefono = request()->telefono;
         $docente->celular = request()->celular;
 
-        $docente->usuario_idUsuario = $usuarios->id;
+        $docente->usuario_id = $usuarios->id;
 
         $docente->save();
         $departamentos = Departamento::all();
@@ -173,5 +181,36 @@ class DocentesController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function carreras($id)
+    {
+        $docentes = Docente::findOrfail($id);
+        
+        $carreras = $docentes->carreras;
+        //return $carreras;
+        $materias= $docentes->materias;
+        // return $materias;
+        // $carreras = Carrera::all();
+        // $roles = Rol::all();
+        // return $docentes;
+        $j = 0;
+        $datos = array(
+            'carreras' => $carreras,
+            'materias' => $materias,
+            'docentes' => $docentes,
+            'j' => $j
+        );
+        return view('carreras.carrera')->with($datos);
+    }
+
+    public function listar()
+    {
+        return view('docentes.listas_estudiantes.estudiantes');
+    }
+
+    public function notas()
+    {
+        return view('docentes.notas.nota_bimestral');
     }
 }

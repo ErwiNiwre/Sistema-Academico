@@ -11,7 +11,7 @@
              <div class="box-header with-border">
                      <h3 class="box-title">Datos</h3>
              </div>    
-             <form class="form-horizontal" action="/Usuarios/{{ $usuarios->id }}" method="POST" role="form">
+             <form class="form-horizontal" action="{{ route('usuarios.update', $usuarios) }}" method="POST" role="form">
                  {{ method_field('PATCH') }}
                  {{ csrf_field() }}
                  {{-- @method('PATCH')

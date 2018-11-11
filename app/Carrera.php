@@ -19,11 +19,16 @@ class Carrera extends Model
 
     public function estudiantes()
     {
-        return $this->belongsToMany('App\Estudiante','estudiante_carrera','carrera_idCarrera','estudiante_idEstudiante');
+        return $this->belongsToMany('App\Estudiante','carrera_estudiante','carrera_id','estudiante_id');
     }
 
     public function docentes()
     {
-        return $this->belongsToMany('App\Docente','docente_carrera','carrera_idCarrera','docente_idDocente');
+        return $this->belongsToMany('App\Docente','carrera_docente','carrera_id','docente_id');
+    }
+
+    public function postulantes()
+    {
+        return $this->hasMany('App\Postulante');
     }
 }

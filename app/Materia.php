@@ -29,6 +29,16 @@ class Materia extends Model
 
     public function aulas()
     {
-        return $this->belongsToMany('App\Aula','materia_aula','materia_idMateria','aula_idAula');
+        return $this->belongsToMany('App\Aula','aula_materia','materia_id','aula_id');
+    }
+
+    public function docentes()
+    {
+        return $this->belongsToMany('App\Docente','docente_materia','docente_id','materia_id');
+    }
+
+    public function cursos()
+    {
+        return $this->belongsToMany('App\Curso','curso_docente','curso_id','materia_id');
     }
 }
